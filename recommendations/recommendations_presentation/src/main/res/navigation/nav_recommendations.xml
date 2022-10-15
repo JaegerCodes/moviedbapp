@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_recommendations"
+    app:startDestination="@id/homeRecommendationsFragment">
+
+    <fragment
+        android:id="@+id/homeRecommendationsFragment"
+        android:name="com.rappi.recommendations_presentation.home_recommendations.HomeRecommendationsFragment"
+        android:label="fragment_home_recommendations"
+        tools:layout="@layout/fragment_home_recommendations" />
+</navigation>

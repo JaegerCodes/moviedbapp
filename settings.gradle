@@ -1,0 +1,33 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "MovieDB"
+include ':app'
+include ':core'
+
+include ':comingsoon'
+include ':trends'
+include ':recommendations'
+include ':recommendations:recommendations_presentation'
+include ':recommendations:recommendations_domain'
+include ':recommendations:recommendations_data'
+include ':comingsoon:comingsoon_presentation'
+include ':comingsoon:comingsoon_domain'
+include ':comingsoon:comingsoon_data'
+include ':recommendations:recommendations_presentation'
+include ':recommendations:recommendations_domain'
+include ':recommendations:recommendations_data'
+include ':trends:trends_presentation'
+include ':trends:trends_domain'
+include ':trends:trends_data'
