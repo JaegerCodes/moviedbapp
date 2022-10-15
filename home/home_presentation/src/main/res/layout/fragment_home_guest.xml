@@ -1,71 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:theme="@style/Base.Theme.SplashMovieDB"
-    tools:context=".home_guest.HomeGuestFragment">
+    tools:context=".home_guest.HomeGuestFragment"
+    android:background="@color/black">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appbar_layout"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?actionBarSize">
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:elevation="0dp"
-            android:background="#0000"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-            <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:id="@+id/collapsing_toolbar"
+            android:layout_height="wrap_content">
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/nav_home_coming_soon"
+                android:name="androidx.navigation.fragment.NavHostFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_scrollFlags="exitUntilCollapsed|noScroll"
-                app:contentScrim="#0000">
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraint_menu"
+                app:defaultNavHost="true"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:navGraph="@navigation/nav_comingsoon"/>
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/nav_home_trends"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:defaultNavHost="true"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/nav_home_coming_soon"
+                app:navGraph="@navigation/nav_trends"/>
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/nav_recommendations"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:defaultNavHost="true"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/nav_home_trends"
+                app:navGraph="@navigation/nav_recommendations"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
+        android:background="#0000"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="exitUntilCollapsed|noScroll"
+            app:contentScrim="#0000">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_menu"
+                android:layout_width="match_parent"
+                android:background="@android:color/transparent"
+                android:minHeight="?attr/actionBarSize"
+                android:layout_height="?attr/actionBarSize">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/menu_appbar"
+                    style="@style/ToolbarTransparent"
+                    app:titleCentered="true"
                     android:layout_width="match_parent"
-                    android:background="@android:color/transparent"
-                    android:minHeight="?attr/actionBarSize"
-                    android:layout_height="?attr/actionBarSize">
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
 
-                    <com.google.android.material.appbar.MaterialToolbar
-                        android:id="@+id/menu_appbar"
-                        style="@style/ToolbarTransparent"
-                        app:titleCentered="true"
-                        android:layout_width="match_parent"
-                        android:layout_height="?attr/actionBarSize"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"/>
+                <ImageView
+                    android:id="@+id/image_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_emovie_logo"
+                    android:background="@drawable/background_dotted_gray"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:ignore="ContentDescription" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
 
-                    <ImageView
-                        android:id="@+id/image_logo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="6dp"
-                        android:src="@drawable/ic_emovie_logo"
-                        android:background="@drawable/background_dotted_gray"
-                        android:scaleType="centerCrop"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        tools:ignore="ContentDescription" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </com.google.android.material.appbar.CollapsingToolbarLayout>
-
-        </com.google.android.material.appbar.AppBarLayout>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
