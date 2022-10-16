@@ -5,21 +5,31 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.rappi.upcoming_presentation.R
+import androidx.fragment.app.viewModels
+import com.rappi.upcoming_presentation.databinding.FragmentHomeUpcomingBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-class HomeupcomingFragment : Fragment() {
+@AndroidEntryPoint
+class HomeUpcomingFragment : Fragment() {
+    private val upcomingMoviesViewModel: UpcomingMoviesViewModel by viewModels()
+    private var _binding: FragmentHomeUpcomingBinding? = null
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
+    private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_upcoming, container, false)
+    ): View {
+        _binding = FragmentHomeUpcomingBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        initViewModels()
+    }
+
+    private fun initViewModels() {
+        upcomingMoviesViewModel.getUpcomingMovies()
     }
 }

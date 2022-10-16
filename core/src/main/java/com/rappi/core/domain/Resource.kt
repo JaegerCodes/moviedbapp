@@ -1,6 +1,4 @@
-package com.rappi.upcoming_data.remote.network
-
-import okhttp3.ResponseBody
+package com.rappi.core.domain
 
 sealed class Resource<out T> {
 
@@ -9,6 +7,7 @@ sealed class Resource<out T> {
     data class Failure(
         val isNetworkError: Boolean,
         val errorCode: Int?,
-        val errorBody: ResponseBody?
     ) : Resource<Nothing>()
+
+    object Loading : Resource<Nothing>()
 }

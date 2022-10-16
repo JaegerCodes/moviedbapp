@@ -43,13 +43,14 @@ android {
 
 dependencies {
     implementation(Ui.material)
-    implementation(Ui.uiKtx)
-    implementation(Ui.fragmentKtx)
-    implementation(Ui.extensions)
-    implementation(Ui.runtimeKtx)
-    implementation(Ui.viewModelKtx)
-    implementation(Ui.livedataKtx)
+    implementation(Ui.navigationUiKtx)
     implementation(Ui.constraintLayout)
+    implementation(Ui.navigationFragmentKtx)
+
+    implementation(Ui.lifecycleExtensions)
+    implementation(Ui.lifecycleViewModelKtx)
+    implementation(Ui.lifecycleRuntimeKtx)
+    implementation(Ui.lifecycleLivedataKtx)
 
     implementation(DaggerHilt.hiltAndroid)
     kapt(DaggerHilt.hiltCompiler)

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeupcomingFragment"
-        android:name="com.rappi.upcoming_presentation.home_upcoming.HomeupcomingFragment"
+        android:name="com.rappi.upcoming_presentation.home_upcoming.HomeUpcomingFragment"
         android:label="fragment_home_upcoming"
         tools:layout="@layout/fragment_home_upcoming" />
 </navigation>

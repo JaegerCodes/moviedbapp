@@ -2,6 +2,8 @@ package com.rappi.upcoming_data.di
 
 import com.rappi.upcoming_data.remote.network.RequestInterceptor
 import com.rappi.upcoming_data.remote.network.UpcomingApi
+import com.rappi.upcoming_data.repository.UpcomingRepositoryImpl
+import com.rappi.upcoming_domain.repository.UpcomingRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,6 +27,7 @@ object UpcomingDataModule {
                     level = HttpLoggingInterceptor.Level.BODY
                 }
             )
+            .addInterceptor(RequestInterceptor())
             .build()
     }
 
@@ -37,6 +40,16 @@ object UpcomingDataModule {
             .client(client)
             .build()
             .create()
+    }
+
+    @Provides
+    @Singleton
+    fun provideUpcomingRepository(
+        api: UpcomingApi,
+    ): UpcomingRepository {
+        return UpcomingRepositoryImpl(
+            api = api
+        )
     }
 
 }
