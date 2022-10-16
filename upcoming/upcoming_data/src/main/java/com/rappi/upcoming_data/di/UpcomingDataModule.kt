@@ -1,6 +1,6 @@
 package com.rappi.upcoming_data.di
 
-import com.rappi.upcoming_data.remote.network.RequestInterceptor
+import com.rappi.core.data.RequestInterceptorTMDB
 import com.rappi.upcoming_data.remote.network.UpcomingApi
 import com.rappi.upcoming_data.repository.UpcomingRepositoryImpl
 import com.rappi.upcoming_domain.repository.UpcomingRepository
@@ -27,7 +27,7 @@ object UpcomingDataModule {
                     level = HttpLoggingInterceptor.Level.BODY
                 }
             )
-            .addInterceptor(RequestInterceptor())
+            .addInterceptor(RequestInterceptorTMDB())
             .build()
     }
 

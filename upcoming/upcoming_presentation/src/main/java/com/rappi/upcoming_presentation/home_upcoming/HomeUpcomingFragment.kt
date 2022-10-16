@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import com.rappi.core.domain.Resource
+import com.rappi.core.presentation.handleApiError
 import com.rappi.upcoming_presentation.databinding.FragmentHomeUpcomingBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,6 +32,17 @@ class HomeUpcomingFragment : Fragment() {
     }
 
     private fun initViewModels() {
+        upcomingMoviesViewModel.upcomingMovies.observe(viewLifecycleOwner) {
+            when (it) {
+                is Resource.Success -> {
+
+                }
+                is Resource.Failure -> handleApiError(it) {
+
+                }
+                else -> Unit
+            }
+        }
         upcomingMoviesViewModel.getUpcomingMovies()
     }
 }

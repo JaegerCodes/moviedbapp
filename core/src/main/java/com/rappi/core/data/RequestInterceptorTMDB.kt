@@ -1,10 +1,10 @@
-package com.rappi.upcoming_data.remote.network
+package com.rappi.core.data
 
-import com.rappi.upcoming_data.BuildConfig
+import com.rappi.core.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.Response
 
-internal class RequestInterceptor : Interceptor {
+class RequestInterceptorTMDB : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val originalRequest = chain.request()
         val originalUrl = originalRequest.url
