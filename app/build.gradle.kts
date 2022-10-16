@@ -42,11 +42,22 @@ android {
 }
 
 dependencies {
+    implementation(Ui.material)
+    implementation(Ui.uiKtx)
+    implementation(Ui.fragmentKtx)
+    implementation(Ui.extensions)
+    implementation(Ui.runtimeKtx)
+    implementation(Ui.viewModelKtx)
+    implementation(Ui.livedataKtx)
+    implementation(Ui.constraintLayout)
 
     implementation(DaggerHilt.hiltAndroid)
     kapt(DaggerHilt.hiltCompiler)
 
     implementation(project(Modules.core))
+    implementation(project(Modules.coreUi))
+
+    implementation(project(Modules.homePresentation))
 
     implementation(project(Modules.trendsPresentation))
     implementation(project(Modules.trendsDomain))

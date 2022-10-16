@@ -2,6 +2,9 @@ object Modules {
     const val app = ":app"
 
     const val core = ":core"
+    const val coreUi = ":core-ui"
+
+    const val homePresentation = ":home:home_presentation"
 
     const val comingsoonData = ":comingsoon:comingsoon_data"
     const val comingsoonDomain = ":comingsoon:comingsoon_domain"
