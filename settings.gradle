@@ -15,22 +15,22 @@ dependencyResolutionManagement {
 rootProject.name = "MovieDB"
 include ':app'
 include ':core'
+include ':core-ui'
 
-include ':upcoming'
-include ':trends'
 include ':recommendations'
 include ':recommendations:recommendations_presentation'
 include ':recommendations:recommendations_domain'
 include ':recommendations:recommendations_data'
+
+include ':upcoming'
 include ':upcoming:upcoming_presentation'
 include ':upcoming:upcoming_domain'
 include ':upcoming:upcoming_data'
-include ':recommendations:recommendations_presentation'
-include ':recommendations:recommendations_domain'
-include ':recommendations:recommendations_data'
+
+include ':trends'
 include ':trends:trends_presentation'
 include ':trends:trends_domain'
 include ':trends:trends_data'
+
 include ':home'
 include ':home:home_presentation'
-include ':core-ui'
