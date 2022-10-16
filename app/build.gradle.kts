@@ -63,9 +63,9 @@ dependencies {
     implementation(project(Modules.trendsDomain))
     implementation(project(Modules.trendsData))
 
-    implementation(project(Modules.comingsoonPresentation))
-    implementation(project(Modules.comingsoonDomain))
-    implementation(project(Modules.comingsoonData))
+    implementation(project(Modules.upcomingPresentation))
+    implementation(project(Modules.upcomingDomain))
+    implementation(project(Modules.upcomingData))
 
     implementation(project(Modules.recommendationsPresentation))
     implementation(project(Modules.recommendationsDomain))

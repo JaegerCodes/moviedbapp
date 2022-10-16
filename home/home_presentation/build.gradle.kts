@@ -7,5 +7,5 @@ dependencies {
     "implementation"(project(Modules.coreUi))
     "implementation"(project(Modules.trendsPresentation))
     "implementation"(project(Modules.recommendationsPresentation))
-    "implementation"(project(Modules.comingsoonPresentation))
+    "implementation"(project(Modules.upcomingPresentation))
 }
