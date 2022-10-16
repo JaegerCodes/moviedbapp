@@ -1,7 +1,7 @@
 package com.rappi.upcoming_data.di
 
-import com.rappi.upcoming_data.remote.network.upcomingApi
 import com.rappi.upcoming_data.remote.network.RequestInterceptor
+import com.rappi.upcoming_data.remote.network.UpcomingApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,7 +15,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object upcomingDataModule {
+object UpcomingDataModule {
     @Provides
     @Singleton
     fun provideOkHttpClient(): OkHttpClient {
@@ -25,15 +25,14 @@ object upcomingDataModule {
                     level = HttpLoggingInterceptor.Level.BODY
                 }
             )
-            .addInterceptor(RequestInterceptor())
             .build()
     }
 
     @Provides
     @Singleton
-    fun provideupcomingApi(client: OkHttpClient): upcomingApi {
+    fun provideUpcomingApi(client: OkHttpClient): UpcomingApi {
         return Retrofit.Builder()
-            .baseUrl(upcomingApi.BASE_URL)
+            .baseUrl(UpcomingApi.BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create())
             .client(client)
             .build()

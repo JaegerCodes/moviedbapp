@@ -1,6 +1,6 @@
 package com.rappi.upcoming_data.remote.dto
 
-data class upcomingDto (
+data class UpcomingDto (
     val dates: DatesDto,
     val page: Long,
     val results: List<ResultDto>,

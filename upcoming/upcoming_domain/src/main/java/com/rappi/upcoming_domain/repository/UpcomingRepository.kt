@@ -1,5 +1,5 @@
 package com.rappi.upcoming_domain.repository
 
-interface UpcomingMoviesRepository {
+interface UpcomingRepository {
     suspend fun upcomingMovies(): Result<List<Nothing>>
 }
