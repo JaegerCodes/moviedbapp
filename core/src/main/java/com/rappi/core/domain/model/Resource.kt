@@ -1,4 +1,4 @@
-package com.rappi.core.domain
+package com.rappi.core.domain.model
 
 sealed class Resource<out T> {
 

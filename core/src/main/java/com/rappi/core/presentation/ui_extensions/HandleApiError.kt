@@ -1,7 +1,7 @@
-package com.rappi.core.presentation
+package com.rappi.core.presentation.ui_extensions
 
 import androidx.fragment.app.Fragment
-import com.rappi.core.domain.Resource
+import com.rappi.core.domain.model.Resource
 
 fun Fragment.handleApiError(
     failure: Resource.Failure,

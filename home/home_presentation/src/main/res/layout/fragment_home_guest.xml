@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:theme="@style/Base.Theme.SplashMovieDB"
     tools:context=".home_guest.HomeGuestFragment"
-    android:background="@color/black">
+    android:background="@color/ui_black">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -32,6 +32,7 @@
                 android:name="androidx.navigation.fragment.NavHostFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ui_normal_100"
                 app:defaultNavHost="true"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -43,6 +44,7 @@
                 android:name="androidx.navigation.fragment.NavHostFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ui_normal_100"
                 app:defaultNavHost="true"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -76,7 +78,6 @@
 
                 <com.google.android.material.appbar.MaterialToolbar
                     android:id="@+id/menu_appbar"
-                    style="@style/ToolbarTransparent"
                     app:titleCentered="true"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
@@ -91,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:padding="6dp"
                     android:src="@drawable/ic_emovie_logo"
-                    android:background="@drawable/background_dotted_gray"
+                    android:background="@drawable/ui_background_dotted_gray"
                     android:scaleType="centerCrop"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

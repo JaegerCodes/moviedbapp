@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.rappi.core.domain.Resource
-import com.rappi.core.presentation.handleApiError
+import com.rappi.core.domain.model.Resource
+import com.rappi.core.presentation.ui_extensions.handleApiError
 import com.rappi.upcoming_presentation.databinding.FragmentHomeUpcomingBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -35,7 +35,7 @@ class HomeUpcomingFragment : Fragment() {
         upcomingMoviesViewModel.upcomingMovies.observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Success -> {
-
+                    binding.upcomingRecycler.adapter = HorizontalMovieAdapter(it.data.upcoming)
                 }
                 is Resource.Failure -> handleApiError(it) {
 
@@ -44,5 +44,10 @@ class HomeUpcomingFragment : Fragment() {
             }
         }
         upcomingMoviesViewModel.getUpcomingMovies()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

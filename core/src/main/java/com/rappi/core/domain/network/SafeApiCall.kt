@@ -1,10 +1,10 @@
-package com.rappi.core.domain
+package com.rappi.core.domain.network
 
 import com.rappi.core.BuildConfig
+import com.rappi.core.domain.model.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
-import java.io.IOException
 
 interface SafeApiCall {
     suspend fun <T> safeApiCall(

@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.rappi.upcoming_domain.use_case.GetRemoteUpcomingMovies
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.rappi.core.domain.Resource
+import com.rappi.core.domain.model.Resource
 import com.rappi.upcoming_domain.model.UpcomingMoviesDetail
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

@@ -4,25 +4,25 @@ import com.squareup.moshi.Json
 
 data class Upcoming (
     val adult: Boolean?,
-    @Json(name="backdrop_path")
+    @field:Json(name="backdrop_path")
     val backdropPath: String?,
-    @Json(name="genre_ids")
+    @field:Json(name="genre_ids")
     val genreIDS: List<Long?>?,
     val id: Long?,
-    @Json(name="original_Language")
+    @field:Json(name="original_Language")
     val originalLanguage: String?,
-    @Json(name="original_title")
+    @field:Json(name="original_title")
     val originalTitle: String?,
     val overview: String?,
     val popularity: Double?,
-    @Json(name="poster_path")
+    @field:Json(name="poster_path")
     val posterPath: String?,
-    @Json(name="release_date")
+    @field:Json(name="release_date")
     val releaseDate: String?,
     val title: String?,
     val video: Boolean?,
-    @Json(name="vote_average")
+    @field:Json(name="vote_average")
     val voteAverage: Double?,
-    @Json(name="vote_count")
+    @field:Json(name="vote_count")
     val voteCount: Long?
 )
