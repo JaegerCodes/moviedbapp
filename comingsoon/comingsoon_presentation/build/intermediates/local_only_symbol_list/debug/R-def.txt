@@ -1,0 +1,7 @@
+R_DEF: Internal format may change without notice
+local
+id homeComingsoonFragment
+id nav_comingsoon
+layout fragment_home_comingsoon
+navigation nav_comingsoon
+string hello_blank_fragment

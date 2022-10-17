@@ -1,4 +1,4 @@
-package com.rappi.core.data
+package com.rappi.core.data.remote
 
 import com.rappi.core.BuildConfig
 import okhttp3.Interceptor

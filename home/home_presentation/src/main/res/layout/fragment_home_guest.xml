@@ -15,7 +15,8 @@
         android:layout_marginTop="?actionBarSize">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/ui_normal_100">
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/nav_home_coming_soon"
                 android:name="androidx.navigation.fragment.NavHostFragment"
