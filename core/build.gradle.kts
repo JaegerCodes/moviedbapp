@@ -3,5 +3,6 @@ apply {
 }
 
 dependencies {
-
+    "implementation"(Retrofit.okHttpLoggingInterceptor)
+    "implementation"(Retrofit.retrofit)
 }

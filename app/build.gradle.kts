@@ -43,13 +43,14 @@ android {
 
 dependencies {
     implementation(Ui.material)
-    implementation(Ui.uiKtx)
-    implementation(Ui.fragmentKtx)
-    implementation(Ui.extensions)
-    implementation(Ui.runtimeKtx)
-    implementation(Ui.viewModelKtx)
-    implementation(Ui.livedataKtx)
+    implementation(Ui.navigationUiKtx)
     implementation(Ui.constraintLayout)
+    implementation(Ui.navigationFragmentKtx)
+
+    implementation(Ui.lifecycleExtensions)
+    implementation(Ui.lifecycleViewModelKtx)
+    implementation(Ui.lifecycleRuntimeKtx)
+    implementation(Ui.lifecycleLivedataKtx)
 
     implementation(DaggerHilt.hiltAndroid)
     kapt(DaggerHilt.hiltCompiler)
@@ -63,9 +64,9 @@ dependencies {
     implementation(project(Modules.trendsDomain))
     implementation(project(Modules.trendsData))
 
-    implementation(project(Modules.comingsoonPresentation))
-    implementation(project(Modules.comingsoonDomain))
-    implementation(project(Modules.comingsoonData))
+    implementation(project(Modules.upcomingPresentation))
+    implementation(project(Modules.upcomingDomain))
+    implementation(project(Modules.upcomingData))
 
     implementation(project(Modules.recommendationsPresentation))
     implementation(project(Modules.recommendationsDomain))

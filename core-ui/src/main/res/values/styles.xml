@@ -1,0 +1,9 @@
+<resources>
+
+    <style name="Theme.CoreUI.Text100H4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:textColor">@color/ui_white</item>
+        <item name="android:textSize">@dimen/ui_h4_100</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+</resources>
