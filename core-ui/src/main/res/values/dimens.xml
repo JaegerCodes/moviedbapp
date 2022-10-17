@@ -21,6 +21,8 @@
     <dimen name="ui_large_175">56dp</dimen>
     <dimen name="ui_large_200">64dp</dimen>
 
+    <dimen name="ui_h5_175">20sp</dimen>
+
     <dimen name="ui_h4_100">24sp</dimen>
     <dimen name="ui_h4_125">28dp</dimen>
 

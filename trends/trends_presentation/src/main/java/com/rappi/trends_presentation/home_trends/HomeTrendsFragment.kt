@@ -36,7 +36,7 @@ class HomeTrendsFragment : Fragment() {
         trendsMoviesViewModel.upcomingMovies.observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Success -> {
-                    binding.upcomingRecycler.adapter = HorizontalMovieAdapter(it.data.trends)
+                    binding.moviesRecycler.adapter = HorizontalMovieAdapter(it.data.trends)
                 }
                 is Resource.Failure -> handleApiError(it) {
                     // Todo: Load local cache
@@ -44,7 +44,7 @@ class HomeTrendsFragment : Fragment() {
                 else -> Unit
             }
         }
-        trendsMoviesViewModel.getUpcomingMovies()
+        trendsMoviesViewModel.getTrendsMovies()
     }
 
     override fun onDestroy() {

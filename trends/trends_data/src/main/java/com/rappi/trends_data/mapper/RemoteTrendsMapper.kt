@@ -1,6 +1,6 @@
 package com.rappi.trends_data.mapper
 
-import com.rappi.trends_data.remote.dto.TrendsApi
+import com.rappi.trends_data.remote.dto.Trends
 import com.rappi.trends_data.remote.dto.TrendsDto
 import com.rappi.trends_domain.model.TrendsMovie
 import com.rappi.trends_domain.model.TrendsMoviesDetail
@@ -11,7 +11,7 @@ fun TrendsDto.toTrendsMoviesDetail(): TrendsMoviesDetail = TrendsMoviesDetail(
     trends = results?.mapNotNull { it?.toTrendsMovie() }?: arrayListOf()
 )
 
-fun TrendsApi.toTrendsMovie(): TrendsMovie = TrendsMovie(
+fun Trends.toTrendsMovie(): TrendsMovie = TrendsMovie(
     adult = adult?: true,
     backdropPath = backdropPath?: "",
     id = id?: -1,

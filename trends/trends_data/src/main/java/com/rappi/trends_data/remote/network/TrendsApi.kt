@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface TrendsApi {
     @GET("3/movie/top_rated?language=en-US&page=1")
-    suspend fun getUpcomingMovies(): TrendsDto
+    suspend fun getTrendsMovies(): TrendsDto
 
     companion object {
         const val BASE_URL = BuildConfig.BASE_URL
