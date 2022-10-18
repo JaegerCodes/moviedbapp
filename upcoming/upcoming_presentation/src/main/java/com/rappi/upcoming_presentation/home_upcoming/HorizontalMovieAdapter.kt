@@ -11,14 +11,17 @@ import com.rappi.core_ui.databinding.UiImageMovieBinding
 
 
 class HorizontalMovieAdapter(
-    private val movies: List<DomainMovie>
+    val movies: List<DomainMovie> = arrayListOf(),
+    private val imageWidth: Int = 0
 ): RecyclerView.Adapter<HorizontalMovieAdapter.MovieViewHolder>() {
+
+    private val imageLoadCrossfade = 300
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val binding = UiImageMovieBinding
             .inflate(LayoutInflater.from(parent.context), parent, false)
         binding.root.layoutParams = ViewGroup.LayoutParams(
-            (parent.width * SCREEN_WIDTH_PERCENT).toInt(),
+            imageWidth,
             ViewGroup.LayoutParams.MATCH_PARENT
         )
         return MovieViewHolder(binding)
@@ -37,7 +40,7 @@ class HorizontalMovieAdapter(
             movieImage.load(
                 PosterSize.Large.url(model.posterPath)
             ) {
-                crossfade(IMAGE_LOAD_CROSSFADE)
+                crossfade(imageLoadCrossfade)
                 listener(onError = { _, _ ->
                     movieButton.visibility = View.GONE
                 })
@@ -46,10 +49,5 @@ class HorizontalMovieAdapter(
 
             }
         }
-    }
-
-    companion object {
-        private const val IMAGE_LOAD_CROSSFADE = 300
-        private const val SCREEN_WIDTH_PERCENT = 0.4
     }
 }

@@ -16,14 +16,14 @@ import javax.inject.Inject
 class UpcomingMoviesViewModel @Inject constructor(
     private val getRemoteUpcomingMovies: GetRemoteUpcomingMovies
 ): ViewModel() {
-    private val onePage = 1
+    private val pageInit = 1
     private var pages = 1
     private var currentLanguage = Languages.EnUs.name
     private val _upcomingMovies: MutableLiveData<Resource<UpcomingMoviesDetail>?> = MutableLiveData()
     val upcomingMovies: LiveData<Resource<UpcomingMoviesDetail>?> = _upcomingMovies
 
     fun getUpcomingMovies() {
-        pages = onePage
+        pages = pageInit
         viewModelScope.launch {
             _upcomingMovies.value = Resource.Loading
             _upcomingMovies.postValue(getRemoteUpcomingMovies(pages, currentLanguage))
@@ -31,7 +31,7 @@ class UpcomingMoviesViewModel @Inject constructor(
     }
 
     fun getNextUpcomingMovies() {
-        pages.plus(onePage)
+        pages++
         viewModelScope.launch {
             _upcomingMovies.value = Resource.Loading
             _upcomingMovies.postValue(getRemoteUpcomingMovies(pages, currentLanguage))
