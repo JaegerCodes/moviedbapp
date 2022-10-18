@@ -5,12 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.rappi.core.domain.model.DomainMovie
 import com.rappi.core.presentation.ui_extensions.PosterSize
 import com.rappi.core_ui.databinding.UiGridImageMovieBinding
 import com.rappi.recommendations_domain.model.RecommendationsMovie
 
 class GridMovieAdapter(
-    private val movies: List<RecommendationsMovie>
+    private val movies: List<DomainMovie>
 ): RecyclerView.Adapter<GridMovieAdapter.MovieViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
@@ -28,7 +29,7 @@ class GridMovieAdapter(
     inner class MovieViewHolder(
         private val binding: UiGridImageMovieBinding
     ): RecyclerView.ViewHolder(binding.root) {
-        fun bindItem(model: RecommendationsMovie) = with(binding) {
+        fun bindItem(model: DomainMovie) = with(binding) {
             movieImage.load(
                 PosterSize.Regular.url(model.posterPath)
             ) {

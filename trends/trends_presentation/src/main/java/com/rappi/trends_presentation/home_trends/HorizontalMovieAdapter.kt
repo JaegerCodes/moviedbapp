@@ -5,12 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.rappi.core.domain.model.DomainMovie
 import com.rappi.core.presentation.ui_extensions.PosterSize
 import com.rappi.core_ui.databinding.UiImageMovieBinding
 import com.rappi.trends_domain.model.TrendsMovie
 
 class HorizontalMovieAdapter(
-    private val movies: List<TrendsMovie>
+    private val movies: List<DomainMovie>
 ): RecyclerView.Adapter<HorizontalMovieAdapter.MovieViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
@@ -32,7 +33,7 @@ class HorizontalMovieAdapter(
     inner class MovieViewHolder(
         private val binding: UiImageMovieBinding
     ): RecyclerView.ViewHolder(binding.root) {
-        fun bindItem(model: TrendsMovie) = with(binding) {
+        fun bindItem(model: DomainMovie) = with(binding) {
             movieImage.load(
                 PosterSize.Regular.url(model.posterPath)
             ) {

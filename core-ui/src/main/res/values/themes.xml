@@ -5,7 +5,7 @@
 
     <style name="Base.Theme.CoreUI" parent="Base.Theme.MaterialThemeBuilder">
 
-
+        <item name="selectableItemBackground">@drawable/ui_ripple_movie_gallery_item</item>
     </style>
 
 
