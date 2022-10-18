@@ -31,7 +31,7 @@ class TrendsMoviesViewModel @Inject constructor(
         }
     }
 
-    fun getNextRecommendationsMovies() {
+    fun getNextTrendsMovies() {
         pages.plus(onePage)
         viewModelScope.launch {
             _upcomingMovies.value = Resource.Loading
