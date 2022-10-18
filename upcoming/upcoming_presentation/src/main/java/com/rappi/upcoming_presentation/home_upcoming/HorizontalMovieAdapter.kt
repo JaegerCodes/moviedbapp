@@ -50,7 +50,6 @@ class HorizontalMovieAdapter(
                 })
             }
             movieButton.setOnClickListener {
-
             }
         }
     }
