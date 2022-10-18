@@ -36,7 +36,17 @@
             android:orientation="horizontal"
             tools:itemCount="4"
             tools:listitem="@layout/ui_image_movie"/>
-
+        <ProgressBar
+            android:id="@+id/gallery_progressbar_center"
+            android:indeterminateTint="@color/ui_red_75"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/ui_normal_100"
+            app:layout_constraintTop_toTopOf="@id/movies_recycler"
+            app:layout_constraintBottom_toBottomOf="@id/movies_recycler"
+            app:layout_constraintStart_toStartOf="@id/movies_recycler"
+            app:layout_constraintEnd_toEndOf="@id/movies_recycler"
+            android:indeterminate="true"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -7,11 +7,14 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.rappi.core.domain.model.DomainMovie
 import com.rappi.core.presentation.ui_extensions.PosterSize
+import com.rappi.core.presentation.ui_extensions.visible
 import com.rappi.core_ui.databinding.UiImageMovieBinding
+import com.rappi.upcoming_presentation.R
 
 
 class HorizontalMovieAdapter(
-    val movies: List<DomainMovie> = arrayListOf(),
+    val movies: MutableList<DomainMovie> = mutableListOf(),
+    val scrollToPosition: (scrollPosition: Int) -> Unit = {},
     private val imageWidth: Int = 0
 ): RecyclerView.Adapter<HorizontalMovieAdapter.MovieViewHolder>() {
 
@@ -37,17 +40,28 @@ class HorizontalMovieAdapter(
         private val binding: UiImageMovieBinding
     ): RecyclerView.ViewHolder(binding.root) {
         fun bindItem(model: DomainMovie) = with(binding) {
+
             movieImage.load(
                 PosterSize.Large.url(model.posterPath)
             ) {
                 crossfade(imageLoadCrossfade)
                 listener(onError = { _, _ ->
-                    movieButton.visibility = View.GONE
+                    movieImage.load(com.rappi.core_ui.R.drawable.ui_ic_no_image)
                 })
             }
             movieButton.setOnClickListener {
 
             }
+        }
+    }
+
+    fun insertMoviesOnRequestNextMoviesEnds(nextMovies: List<DomainMovie>) {
+        if (nextMovies.isNotEmpty()) {
+            val positionStart = movies.size
+            val itemCount = movies.size + nextMovies.size
+            movies.addAll(nextMovies)
+            notifyItemRangeChanged(positionStart, itemCount)
+            scrollToPosition.invoke(positionStart)
         }
     }
 }

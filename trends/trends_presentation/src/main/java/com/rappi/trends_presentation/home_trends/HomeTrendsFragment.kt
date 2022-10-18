@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.rappi.core.domain.model.Resource
 import com.rappi.core.presentation.ui_extensions.handleApiError
+import com.rappi.core.presentation.ui_extensions.visible
 import com.rappi.trends_presentation.databinding.FragmentHomeTrendsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -34,6 +35,7 @@ class HomeTrendsFragment : Fragment() {
 
     private fun initViewModels() {
         trendsMoviesViewModel.upcomingMovies.observe(viewLifecycleOwner) {
+            binding.galleryProgressbarCenter.visible(it is Resource.Loading)
             when (it) {
                 is Resource.Success -> {
                     binding.moviesRecycler.adapter = HorizontalMovieAdapter(it.data.trends)

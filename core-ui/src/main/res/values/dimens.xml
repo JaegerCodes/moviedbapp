@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <dimen name="ui_small_25">2dp</dimen>
     <dimen name="ui_small_50">4dp</dimen>
     <dimen name="ui_small_100">8dp</dimen>
     <dimen name="ui_small_125">12dp</dimen>
