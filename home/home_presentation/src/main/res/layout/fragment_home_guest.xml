@@ -51,6 +51,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/nav_home_trends"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:navGraph="@navigation/nav_recommendations"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

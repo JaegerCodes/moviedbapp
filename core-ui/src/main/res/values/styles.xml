@@ -1,8 +1,15 @@
 <resources>
 
-    <style name="Theme.CoreUI.Text100H4" parent="TextAppearance.MaterialComponents.Headline4">
+    <style name="Theme.CoreUI.Text100H4.Light" parent="TextAppearance.MaterialComponents.Headline4">
         <item name="android:textColor">@color/ui_white</item>
         <item name="android:textSize">@dimen/ui_h4_100</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+
+    <style name="Theme.CoreUI.Text175H5.Light" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textColor">@color/ui_white</item>
+        <item name="android:textSize">@dimen/ui_h5_175</item>
         <item name="fontFamily">@font/poppins_bold</item>
         <item name="android:letterSpacing">0.04</item>
     </style>

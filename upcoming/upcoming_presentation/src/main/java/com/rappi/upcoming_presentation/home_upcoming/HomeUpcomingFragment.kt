@@ -35,7 +35,7 @@ class HomeUpcomingFragment : Fragment() {
         upcomingMoviesViewModel.upcomingMovies.observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Success -> {
-                    binding.upcomingRecycler.adapter = HorizontalMovieAdapter(it.data.upcoming)
+                    binding.moviesRecycler.adapter = HorizontalMovieAdapter(it.data.upcoming)
                 }
                 is Resource.Failure -> handleApiError(it) {
 

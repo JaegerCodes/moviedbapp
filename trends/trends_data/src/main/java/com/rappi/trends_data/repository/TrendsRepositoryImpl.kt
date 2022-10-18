@@ -11,7 +11,7 @@ class TrendsRepositoryImpl(
     private val api: TrendsApi
 ): TrendsRepository, SafeApiCall {
     override suspend fun trendsMovies(): Resource<TrendsMoviesDetail> = safeApiCall {
-        val trendsMoviesDto = api.getUpcomingMovies()
+        val trendsMoviesDto = api.getTrendsMovies()
         trendsMoviesDto.toTrendsMoviesDetail()
     }
 }

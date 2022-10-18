@@ -2,7 +2,7 @@ package com.rappi.trends_data.remote.dto
 
 import com.squareup.moshi.Json
 
-data class TrendsApi (
+data class Trends (
     val adult: Boolean?,
     @field:Json(name="backdrop_path")
     val backdropPath: String?,

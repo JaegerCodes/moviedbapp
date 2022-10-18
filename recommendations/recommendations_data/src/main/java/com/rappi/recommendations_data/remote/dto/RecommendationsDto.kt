@@ -1,11 +1,11 @@
-package com.rappi.trends_data.remote.dto
+package com.rappi.recommendations_data.remote.dto
 
 import com.squareup.moshi.Json
 
-data class TrendsDto (
+data class RecommendationsDto (
     val dates: Dates?,
     val page: Long?,
-    val results: List<Trends?>?,
+    val results: List<Recommendations?>?,
     @Json(name="total_pages")
     val totalPages: Long?,
     @Json(name="total_results")

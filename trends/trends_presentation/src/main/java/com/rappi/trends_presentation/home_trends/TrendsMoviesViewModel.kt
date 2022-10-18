@@ -13,16 +13,16 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TrendsMoviesViewModel @Inject constructor(
-    private val getRemoteUpcomingMovies: GetRemoteTrendsMovies
+    private val getRemoteTrendsMovies: GetRemoteTrendsMovies
 ): ViewModel() {
 
     private val _upcomingMovies: MutableLiveData<Resource<TrendsMoviesDetail>?> = MutableLiveData()
     val upcomingMovies: LiveData<Resource<TrendsMoviesDetail>?> = _upcomingMovies
 
-    fun getUpcomingMovies() {
+    fun getTrendsMovies() {
         viewModelScope.launch {
             _upcomingMovies.value = Resource.Loading
-            _upcomingMovies.value = getRemoteUpcomingMovies()
+            _upcomingMovies.value = getRemoteTrendsMovies()
         }
     }
 }
