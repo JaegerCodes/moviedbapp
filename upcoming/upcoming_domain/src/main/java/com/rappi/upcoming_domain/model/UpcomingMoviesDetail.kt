@@ -1,7 +1,7 @@
 package com.rappi.upcoming_domain.model
 
 data class UpcomingMoviesDetail (
-    val page: Long,
+    val page: Int,
     val upcoming: List<UpcomingMovie>,
     val totalPages: Long,
 )

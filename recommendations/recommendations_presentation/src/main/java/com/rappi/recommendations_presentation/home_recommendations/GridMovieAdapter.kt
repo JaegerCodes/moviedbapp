@@ -8,7 +8,6 @@ import coil.load
 import com.rappi.core.domain.model.DomainMovie
 import com.rappi.core.presentation.ui_extensions.PosterSize
 import com.rappi.core_ui.databinding.UiGridImageMovieBinding
-import com.rappi.recommendations_domain.model.RecommendationsMovie
 
 class GridMovieAdapter(
     private val movies: List<DomainMovie>
@@ -31,7 +30,7 @@ class GridMovieAdapter(
     ): RecyclerView.ViewHolder(binding.root) {
         fun bindItem(model: DomainMovie) = with(binding) {
             movieImage.load(
-                PosterSize.Regular.url(model.posterPath)
+                PosterSize.Large.url(model.posterPath)
             ) {
                 crossfade(IMAGE_LOAD_CROSSFADE)
                 listener(onError = { _, _ ->

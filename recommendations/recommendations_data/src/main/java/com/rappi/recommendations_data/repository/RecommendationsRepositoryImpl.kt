@@ -10,8 +10,11 @@ import com.rappi.recommendations_domain.repository.RecommendationsRepository
 class RecommendationsRepositoryImpl(
     private val api: RecommendationsApi
 ): RecommendationsRepository, SafeApiCall {
-    override suspend fun recommendationsMovies(): Resource<RecommendationsMoviesDetail> = safeApiCall {
-        val trendsMoviesDto = api.getRecommendationsMovies()
+    override suspend fun recommendationsMovies(
+        page: Int,
+        language: String
+    ): Resource<RecommendationsMoviesDetail> = safeApiCall {
+        val trendsMoviesDto = api.getRecommendationsMovies(page, language)
         trendsMoviesDto.toTrendsMoviesDetail()
     }
 }

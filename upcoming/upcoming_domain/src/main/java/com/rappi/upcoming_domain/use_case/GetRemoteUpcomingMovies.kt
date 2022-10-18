@@ -8,7 +8,7 @@ import javax.inject.Inject
 class GetRemoteUpcomingMovies @Inject constructor(
     private val repository: UpcomingRepository
 ) {
-    suspend operator fun invoke(): Resource<UpcomingMoviesDetail> {
-        return repository.upcomingMovies()
+    suspend operator fun invoke(page: Int, language: String): Resource<UpcomingMoviesDetail> {
+        return repository.upcomingMovies(page, language)
     }
 }

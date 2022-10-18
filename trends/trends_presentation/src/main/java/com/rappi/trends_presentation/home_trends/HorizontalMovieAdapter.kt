@@ -8,7 +8,6 @@ import coil.load
 import com.rappi.core.domain.model.DomainMovie
 import com.rappi.core.presentation.ui_extensions.PosterSize
 import com.rappi.core_ui.databinding.UiImageMovieBinding
-import com.rappi.trends_domain.model.TrendsMovie
 
 class HorizontalMovieAdapter(
     private val movies: List<DomainMovie>
@@ -35,7 +34,7 @@ class HorizontalMovieAdapter(
     ): RecyclerView.ViewHolder(binding.root) {
         fun bindItem(model: DomainMovie) = with(binding) {
             movieImage.load(
-                PosterSize.Regular.url(model.posterPath)
+                PosterSize.Large.url(model.posterPath)
             ) {
                 crossfade(IMAGE_LOAD_CROSSFADE)
                 listener(onError = { _, _ ->

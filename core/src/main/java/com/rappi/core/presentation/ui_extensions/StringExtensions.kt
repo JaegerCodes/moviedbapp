@@ -4,7 +4,7 @@ import com.rappi.core.BuildConfig
 
 
 sealed class PosterSize {
-    object Regular: PosterSize() {
+    object Large: PosterSize() {
         public override fun url(path: String) = "${baseUrl}w500/$path"
     }
 
