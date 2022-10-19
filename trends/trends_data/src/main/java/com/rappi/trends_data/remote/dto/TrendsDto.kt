@@ -4,10 +4,10 @@ import com.squareup.moshi.Json
 
 data class TrendsDto (
     val dates: Dates?,
-    val page: Long?,
+    val page: Int?,
     val results: List<Trends?>?,
-    @Json(name="total_pages")
+    @field:Json(name="total_pages")
     val totalPages: Long?,
-    @Json(name="total_results")
+    @field:Json(name="total_results")
     val totalResults: Long?
 )

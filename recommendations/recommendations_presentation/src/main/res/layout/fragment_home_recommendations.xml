@@ -7,7 +7,7 @@
     android:theme="@style/Theme.CoreUI">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:background="@color/ui_black">
 
         <com.google.android.material.textview.MaterialTextView
@@ -32,9 +32,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            tools:itemCount="8"
+            tools:itemCount="2"
             app:spanCount="2"
             tools:listitem="@layout/ui_grid_image_movie"/>
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/gallery_progressbar_bottom"
+            android:indeterminateTint="@color/ui_red_75"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:alpha="0.6"
+            android:layout_gravity="center"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/movie_load"
+            android:contentDescription=""/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

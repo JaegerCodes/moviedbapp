@@ -1,4 +1,6 @@
 <resources>
 
     <string name="trends_gallery_header_text">Tendencia</string>
+    <string name="trends_progress_center">ui_trends_progress_center</string>
+    <string name="trends_progress_right">ui_trends_progress_right</string>
 </resources>

@@ -1,7 +1,9 @@
 package com.rappi.upcoming_domain.model
 
+import com.rappi.core.domain.model.DMovieDetail
+
 data class UpcomingMoviesDetail (
-    val page: Int,
-    val upcoming: List<UpcomingMovie>,
-    val totalPages: Long,
-)
+    override val page: Int,
+    override val movies: List<UpcomingMovie>,
+    override val totalPages: Long,
+): DMovieDetail

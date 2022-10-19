@@ -1,6 +1,6 @@
 package com.rappi.trends_domain.model
 
-import com.rappi.core.domain.model.DomainMovie
+import com.rappi.core.domain.model.DMovie
 
 data class TrendsMovie (
     override val adult: Boolean,
@@ -17,4 +17,4 @@ data class TrendsMovie (
     override val video: Boolean,
     override val voteAverage: Double,
     override val voteCount: Long
-): DomainMovie
+): DMovie

@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.rappi.upcoming_domain.use_case.GetUpcomingMoviesRemote
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.rappi.core.domain.model.DMovieDetail
 import com.rappi.core.domain.model.Resource
 import com.rappi.core.presentation.model.Languages
 import com.rappi.upcoming_domain.model.UpcomingMoviesDetail
@@ -28,11 +29,11 @@ class UpcomingMoviesViewModel @Inject constructor(
     private var totalPages: Long = 0
     private var currentLanguage = Languages.EnUs.name
 
-    private val _upcomingMovies = MutableStateFlow<Resource<UpcomingMoviesDetail>>(Resource.Empty)
-    val upcomingMovies: StateFlow<Resource<UpcomingMoviesDetail>> = _upcomingMovies
+    private val _upcomingMovies = MutableStateFlow<Resource<DMovieDetail>>(Resource.Empty)
+    val upcomingMovies: StateFlow<Resource<DMovieDetail>> = _upcomingMovies
 
-    private val _nextMovies: MutableLiveData<Resource<UpcomingMoviesDetail>?> = MutableLiveData()
-    val nextMovies: LiveData<Resource<UpcomingMoviesDetail>?> = _nextMovies
+    private val _nextMovies: MutableLiveData<Resource<DMovieDetail>?> = MutableLiveData()
+    val nextMovies: LiveData<Resource<DMovieDetail>?> = _nextMovies
 
     fun getUpcomingMovies() {
         upcomingMoviesJob?.cancel()
@@ -52,7 +53,7 @@ class UpcomingMoviesViewModel @Inject constructor(
             .launchIn(viewModelScope)
     }
 
-    fun updateMoviesPagesData(pagesData: UpcomingMoviesDetail) {
+    fun updateMoviesPagesData(pagesData: DMovieDetail) {
         currentPageIndex = pagesData.page
         totalPages = pagesData.totalPages
     }

@@ -1,19 +1,15 @@
 package com.rappi.upcoming_presentation.home_upcoming
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.rappi.core.domain.model.DomainMovie
+import com.rappi.core.domain.model.DMovie
 import com.rappi.core.presentation.ui_extensions.PosterSize
-import com.rappi.core.presentation.ui_extensions.visible
 import com.rappi.core_ui.databinding.UiImageMovieBinding
-import com.rappi.upcoming_presentation.R
-
 
 class HorizontalMovieAdapter(
-    val movies: MutableList<DomainMovie> = mutableListOf(),
+    val movies: MutableList<DMovie> = mutableListOf(),
     val scrollToPosition: (scrollPosition: Int) -> Unit = {},
     private val imageWidth: Int = 0
 ): RecyclerView.Adapter<HorizontalMovieAdapter.MovieViewHolder>() {
@@ -39,7 +35,7 @@ class HorizontalMovieAdapter(
     inner class MovieViewHolder(
         private val binding: UiImageMovieBinding
     ): RecyclerView.ViewHolder(binding.root) {
-        fun bindItem(model: DomainMovie) = with(binding) {
+        fun bindItem(model: DMovie) = with(binding) {
 
             movieImage.load(
                 PosterSize.Large.url(model.posterPath)
@@ -54,7 +50,7 @@ class HorizontalMovieAdapter(
         }
     }
 
-    fun insertMoviesOnRequestNextMoviesEnds(nextMovies: List<DomainMovie>) {
+    fun insertMoviesOnRequestNextMoviesEnds(nextMovies: List<DMovie>) {
         if (nextMovies.isNotEmpty()) {
             val positionStart = movies.size
             val itemCount = movies.size + nextMovies.size

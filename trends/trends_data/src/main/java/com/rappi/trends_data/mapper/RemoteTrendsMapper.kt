@@ -8,7 +8,7 @@ import com.rappi.trends_domain.model.TrendsMoviesDetail
 fun TrendsDto.toTrendsMoviesDetail(): TrendsMoviesDetail = TrendsMoviesDetail(
     page = page?: 0,
     totalPages = totalPages?: 0,
-    trends = results?.mapNotNull { it?.toTrendsMovie() }?: arrayListOf()
+    movies = results?.mapNotNull { it?.toTrendsMovie() }?: arrayListOf()
 )
 
 fun Trends.toTrendsMovie(): TrendsMovie = TrendsMovie(
