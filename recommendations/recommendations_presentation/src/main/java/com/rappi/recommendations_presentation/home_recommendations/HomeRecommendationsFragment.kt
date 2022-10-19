@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import com.rappi.core.domain.model.DMovieDetail
 import com.rappi.core.presentation.ui_extensions.handleApiError
 import com.rappi.core.presentation.ui_extensions.visible
+import com.rappi.core_ui.parentViewVisible
 import com.rappi.recommendations_domain.model.FilteredMovies
 import com.rappi.recommendations_presentation.databinding.FragmentHomeRecommendationsBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -32,6 +33,7 @@ class HomeRecommendationsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.filterChips.setOnCheckedStateChangeListener { group, checkedIds ->  }
         initViewModels()
         moviesViewModel.getRecommendationsMovies()
     }
@@ -42,7 +44,8 @@ class HomeRecommendationsFragment : Fragment() {
 
     private fun onGetUpcomingMovies() {
         moviesViewModel.recommendationsMovies.observe(viewLifecycleOwner) {
-            binding.galleryProgressbarBottom.visible(it is FilteredMovies.Loading, true)
+
+            parentViewVisible(it is FilteredMovies.Loading && adapterMovies.itemCount > 0)
             when (it) {
                 is FilteredMovies.Success -> onGetUpcomingMoviesFirstResponse(it.detail)
                 is FilteredMovies.Failure -> handleApiError(it.ApiFail) {}

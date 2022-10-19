@@ -5,4 +5,14 @@ apply {
 dependencies {
     "implementation"(Retrofit.okHttpLoggingInterceptor)
     "implementation"(Retrofit.retrofit)
+
+    "implementation"(Ui.material)
+    "implementation"(Ui.navigationUiKtx)
+    "implementation"(Ui.navigationFragmentKtx)
+    "implementation"(Ui.constraintLayout)
+    "implementation"(Ui.lifecycleExtensions)
+    "implementation"(Ui.lifecycleViewModelKtx)
+    "implementation"(Ui.lifecycleLivedataKtx)
+    "implementation"(Ui.lifecycleRuntimeKtx)
+    "implementation"(Lottie.lottie)
 }

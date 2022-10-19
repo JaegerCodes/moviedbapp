@@ -21,6 +21,36 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/filter_chips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:singleSelection="true"
+            app:singleLine="true"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="@dimen/ui_normal_100"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/upcoming_title">
+            <com.google.android.material.chip.Chip
+                android:id="@+id/filter_language"
+                style="@style/Widget.CoreUI.Chips.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="Español"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/filter_release_date"
+                style="@style/Widget.CoreUI.Chips.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="2020"/>
+        </com.google.android.material.chip.ChipGroup>
+
+
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/movies_recycler"
             android:layout_width="match_parent"
@@ -28,27 +58,14 @@
             android:minHeight="@dimen/ui_poster_medium_min_height"
             android:paddingStart="@dimen/ui_normal_100"
             android:paddingBottom="@dimen/ui_normal_100"
-            app:layout_constraintTop_toBottomOf="@+id/upcoming_title"
+            app:layout_constraintTop_toBottomOf="@+id/filter_chips"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             tools:itemCount="2"
             app:spanCount="2"
             tools:listitem="@layout/ui_grid_image_movie"/>
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/gallery_progressbar_bottom"
-            android:indeterminateTint="@color/ui_red_75"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:alpha="0.6"
-            android:layout_gravity="center"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/movie_load"
-            android:contentDescription=""/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -2,10 +2,7 @@ package com.rappi.core.presentation.ui_extensions
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
-import android.content.res.Resources
-import android.util.TypedValue
 import android.view.View
-import androidx.annotation.DimenRes
 
 fun View.visible(isVisible: Boolean, isWithAnimation: Boolean = false) {
     val currentAlpha = alpha
