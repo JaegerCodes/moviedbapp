@@ -42,19 +42,31 @@ android {
 }
 
 dependencies {
+    implementation(Ui.material)
+    implementation(Ui.navigationUiKtx)
+    implementation(Ui.constraintLayout)
+    implementation(Ui.navigationFragmentKtx)
+
+    implementation(Ui.lifecycleExtensions)
+    implementation(Ui.lifecycleViewModelKtx)
+    implementation(Ui.lifecycleRuntimeKtx)
+    implementation(Ui.lifecycleLivedataKtx)
 
     implementation(DaggerHilt.hiltAndroid)
     kapt(DaggerHilt.hiltCompiler)
 
     implementation(project(Modules.core))
+    implementation(project(Modules.coreUi))
+
+    implementation(project(Modules.homePresentation))
 
     implementation(project(Modules.trendsPresentation))
     implementation(project(Modules.trendsDomain))
     implementation(project(Modules.trendsData))
 
-    implementation(project(Modules.comingsoonPresentation))
-    implementation(project(Modules.comingsoonDomain))
-    implementation(project(Modules.comingsoonData))
+    implementation(project(Modules.upcomingPresentation))
+    implementation(project(Modules.upcomingDomain))
+    implementation(project(Modules.upcomingData))
 
     implementation(project(Modules.recommendationsPresentation))
     implementation(project(Modules.recommendationsDomain))
@@ -66,7 +78,7 @@ dependencies {
     implementation(Coil.coil)
     implementation(Coil.coilVideo)
 
-    implementation(Google.material)
+    implementation(Lottie.lottie)
 
     implementation(Retrofit.okHttp)
     implementation(Retrofit.retrofit)

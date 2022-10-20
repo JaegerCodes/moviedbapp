@@ -1,0 +1,5 @@
+int id homeComingsoonFragment 0x0
+int id nav_comingsoon 0x0
+int layout fragment_home_comingsoon 0x0
+int navigation nav_comingsoon 0x0
+int string hello_blank_fragment 0x0

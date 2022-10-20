@@ -1,0 +1,4 @@
+<resources>
+    <string name="ui_grid_image_movie">Core Ui module component image grid</string>
+    <string name="ui_image_movie">Core Ui module component image horizontal list</string>
+</resources>

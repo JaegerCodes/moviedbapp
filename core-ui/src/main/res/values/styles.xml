@@ -1,0 +1,28 @@
+<resources>
+
+    <style name="Theme.CoreUI.Text100H4.Light" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:textColor">@color/ui_white</item>
+        <item name="android:textSize">@dimen/ui_h4_100</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+
+    <style name="Theme.CoreUI.Text175H5.Light" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textColor">@color/ui_white</item>
+        <item name="android:textSize">@dimen/ui_h5_175</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+
+
+
+    <style name="Widget.CoreUI.Chips.Filter" parent="">
+        <item name="chipIconVisible">false</item>
+        <item name="closeIconVisible">false</item>
+        <item name="chipStrokeColor">@color/ui_white</item>
+        <item name="chipStrokeWidth">2dp</item>
+        <item name="checkedIcon">@null</item>
+        <item name="android:textColor">@color/ui_selector_chip_filter_text</item>
+        <item name="chipBackgroundColor">@color/ui_selector_chip_filter_background</item>
+    </style>
+</resources>

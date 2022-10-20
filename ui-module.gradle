@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-parcelize'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdk ProjectConfig.compileSdk
@@ -38,32 +39,16 @@ android {
 
 dependencies {
     implementation Ui.material
-    implementation Ui.uiKtx
-    implementation Ui.fragmentKtx
-    implementation Ui.extensions
-    implementation Ui.runtimeKtx
-    implementation Ui.viewModelKtx
-    implementation Ui.livedataKtx
+    implementation Ui.navigationUiKtx
+    implementation Ui.navigationFragmentKtx
     implementation Ui.constraintLayout
+    implementation Ui.lifecycleExtensions
+    implementation Ui.lifecycleViewModelKtx
+    implementation Ui.lifecycleLivedataKtx
+    implementation Ui.lifecycleRuntimeKtx
+
+    implementation Lottie.lottie
 
     kapt DaggerHilt.hiltCompiler
     implementation DaggerHilt.hiltAndroid
-
-    testImplementation Testing.junit4
-    testImplementation Testing.junitAndroidExt
-    testImplementation Testing.truth
-    testImplementation Testing.coroutines
-    testImplementation Testing.turbine
-
-    testImplementation Testing.mockk
-    testImplementation Testing.mockWebServer
-
-    androidTestImplementation Testing.junit4
-    androidTestImplementation Testing.junitAndroidExt
-    androidTestImplementation Testing.truth
-    androidTestImplementation Testing.coroutines
-    androidTestImplementation Testing.turbine
-    androidTestImplementation Testing.mockk
-    androidTestImplementation Testing.mockWebServer
-    androidTestImplementation Testing.hiltTesting
 }

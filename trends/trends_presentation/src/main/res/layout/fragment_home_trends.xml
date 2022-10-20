@@ -2,12 +2,73 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".home_trends.HomeTrendsFragment">
-
-    <TextView
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/Theme.CoreUI">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Home trends" />
+        tools:background="@color/ui_black">
 
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/upcoming_title"
+            style="@style/Theme.CoreUI.Text175H5.Light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/ui_normal_100"
+            android:text="@string/trends_gallery_header_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/trends_recycler"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/ui_poster_medium_min_height"
+            android:minHeight="@dimen/ui_poster_medium_min_height"
+            android:paddingLeft="@dimen/ui_normal_100"
+            android:layout_marginTop="@dimen/ui_small_125"
+            app:layout_constraintTop_toBottomOf="@+id/upcoming_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"
+            tools:itemCount="3"
+            tools:listitem="@layout/ui_image_movie"/>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:visibility="gone"
+            android:id="@+id/trends_progress_center"
+            android:indeterminateTint="@color/ui_red_75"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/ui_normal_100"
+            app:layout_constraintTop_toTopOf="@id/trends_recycler"
+            app:layout_constraintBottom_toBottomOf="@id/trends_recycler"
+            app:layout_constraintStart_toStartOf="@id/trends_recycler"
+            app:layout_constraintEnd_toEndOf="@id/trends_recycler"
+            android:alpha="0.6"
+            android:layout_gravity="center"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/movie_load"
+            android:contentDescription="@string/trends_progress_center"/>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/trends_progress_right"
+            android:visibility="gone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/trends_recycler"
+            app:layout_constraintBottom_toBottomOf="@id/trends_recycler"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:alpha="0.6"
+            android:layout_gravity="end"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/movie_load"
+            android:contentDescription="@string/trends_progress_right"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -30,7 +30,11 @@
     <style name="ToolbarTransparent" parent="@style/Widget.MaterialComponents.Toolbar">
         <item name="theme">@style/Theme.AppCompat.Light.NoActionBar</item>
         <item name="elevation">0dp</item>
-        <item name="titleTextColor">@color/white</item>
+        <item name="titleTextColor">@color/ui_white</item>
         <item name="android:background">@color/transparent</item>
+    </style>
+
+    <style name="Base.Theme.SplashMovieDB" parent="Theme.MovieDB">
+        <item name="android:windowBackground">@drawable/ic_splash_app</item>
     </style>
 </resources>
