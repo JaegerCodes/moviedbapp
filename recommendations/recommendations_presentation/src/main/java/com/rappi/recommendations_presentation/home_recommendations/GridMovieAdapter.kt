@@ -11,7 +11,7 @@ import com.rappi.recommendations_domain.model.RecommendationsMovie
 
 class GridMovieAdapter(
     val movies: MutableList<DMovie> = mutableListOf(),
-    val scrollToPosition: (scrollPosition: Int) -> Unit = {},
+    val getMovieDetail: (movieID: String) -> Unit = {},
 ): RecyclerView.Adapter<GridMovieAdapter.MovieViewHolder>() {
 
     private val imageLoadCrossfade = 300
@@ -41,6 +41,7 @@ class GridMovieAdapter(
                 })
             }
             movieButton.setOnClickListener {
+                getMovieDetail.invoke(model.id.toString())
             }
         }
     }

@@ -6,11 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.rappi.core.domain.model.DMovieDetail
 import com.rappi.core.presentation.ui_extensions.handleApiError
 import com.rappi.core.presentation.ui_extensions.visible
 import com.rappi.core_ui.parentViewVisible
 import com.rappi.recommendations_domain.model.FilteredMovies
+import com.rappi.recommendations_presentation.R
 import com.rappi.recommendations_presentation.databinding.FragmentHomeRecommendationsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -57,8 +59,8 @@ class HomeRecommendationsFragment : Fragment() {
     private fun onGetUpcomingMoviesFirstResponse(upcomingMoviesDetail: DMovieDetail) {
         moviesViewModel.updateMoviesPagesData(upcomingMoviesDetail)
         adapterMovies = GridMovieAdapter(
-            scrollToPosition = {
-
+            getMovieDetail = {
+                findNavController().navigate(R.id.recommendationsMovieDetail)
             },
             movies = upcomingMoviesDetail.movies.toMutableList(),
         )

@@ -9,12 +9,16 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.rappi.core.domain.model.DMovieDetail
 import com.rappi.core.domain.model.Resource
 import com.rappi.core.presentation.ui_extensions.handleApiError
 import com.rappi.core.presentation.ui_extensions.visible
+import com.rappi.upcoming_presentation.R
 import com.rappi.upcoming_presentation.databinding.FragmentHomeUpcomingBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -80,6 +84,9 @@ class HomeUpcomingFragment : Fragment() {
         adapterMovies = HorizontalMovieAdapter(
             scrollToPosition = { position ->
                 scrollToItemPosition(position)
+            },
+            getMovieDetail = {
+                findNavController().navigate(R.id.upcomingMovieDetail)
             },
             movies = upcomingMoviesDetail.movies.toMutableList(),
             imageWidth = (binding.root.width * viewWidthPercent).toInt()

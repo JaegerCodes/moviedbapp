@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.HORIZONTAL
@@ -18,6 +19,7 @@ import com.rappi.core.domain.model.DMovieDetail
 import com.rappi.core.domain.model.Resource
 import com.rappi.core.presentation.ui_extensions.handleApiError
 import com.rappi.core.presentation.ui_extensions.visible
+import com.rappi.trends_presentation.R
 import com.rappi.trends_presentation.databinding.FragmentHomeTrendsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -58,6 +60,9 @@ class HomeTrendsFragment : Fragment() {
                     adapterMovies = HorizontalMovieAdapter(
                         scrollToPosition = { position ->
                             scrollToItemPosition(position)
+                        },
+                        getMovieDetail = {
+                            findNavController().navigate(R.id.trendsMovieDetail)
                         },
                         movies = it.data.movies.toMutableList(),
                         imageWidth = (binding.root.width * viewWidthPercent).toInt()

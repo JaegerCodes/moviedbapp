@@ -11,6 +11,7 @@ import com.rappi.core_ui.databinding.UiImageMovieBinding
 class HorizontalMovieAdapter(
     val movies: MutableList<DMovie> = mutableListOf(),
     val scrollToPosition: (scrollPosition: Int) -> Unit = {},
+    val getMovieDetail: (movieID: String) -> Unit = {},
     private val imageWidth: Int = 0
 ): RecyclerView.Adapter<HorizontalMovieAdapter.MovieViewHolder>() {
 
@@ -47,17 +48,8 @@ class HorizontalMovieAdapter(
                 })
             }
             movieButton.setOnClickListener {
+                getMovieDetail.invoke(model.id.toString())
             }
-        }
-    }
-
-    fun insertMoviesOnRequestNextMoviesEnds(nextMovies: List<DMovie>) {
-        if (nextMovies.isNotEmpty()) {
-            val positionStart = movies.size
-            val itemCount = movies.size + nextMovies.size
-            movies.addAll(nextMovies)
-            notifyItemRangeChanged(positionStart, itemCount)
-            scrollToPosition.invoke(positionStart)
         }
     }
 }

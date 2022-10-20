@@ -9,5 +9,14 @@
         android:id="@+id/homeupcomingFragment"
         android:name="com.rappi.upcoming_presentation.home_upcoming.HomeUpcomingFragment"
         android:label="fragment_home_upcoming"
-        tools:layout="@layout/fragment_home_upcoming" />
+        tools:layout="@layout/fragment_home_upcoming" >
+        <action
+            android:id="@+id/action_homeupcomingFragment_to_upcomingMovieDetail"
+            app:destination="@id/upcomingMovieDetail" />
+    </fragment>
+
+    <dialog android:id="@+id/upcomingMovieDetail"
+        android:name="com.rappi.moviedetail_presentation.moviedetail.MovieDetailFragment"
+        android:label="fragment_upcoming_movie_detail"
+        tools:layout="@layout/fragment_movie_detail"/>
 </navigation>
