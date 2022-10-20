@@ -9,7 +9,7 @@ import com.rappi.recommendations_data.remote.dto.RecommendationsDto
 fun RecommendationsDto.toTrendsMoviesDetail(): RecommendationsMoviesDetail = RecommendationsMoviesDetail(
     page = page?: 0,
     totalPages = totalPages?: 0,
-    recommendations = results?.mapNotNull { it?.toRecommendationsMovie() }?: arrayListOf()
+    movies = results?.mapNotNull { it?.toRecommendationsMovie() }?: arrayListOf()
 )
 
 fun Recommendations.toRecommendationsMovie(): RecommendationsMovie = RecommendationsMovie(

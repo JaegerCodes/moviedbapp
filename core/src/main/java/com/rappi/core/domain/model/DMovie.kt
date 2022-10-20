@@ -1,6 +1,6 @@
 package com.rappi.core.domain.model
 
-interface DomainMovie {
+interface DMovie {
     val adult: Boolean
     val backdropPath: String
     val genreIDS: List<Long>

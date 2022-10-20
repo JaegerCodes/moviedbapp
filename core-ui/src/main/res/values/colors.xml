@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="ui_gray">#8F8F8F</color>
+
+    <color name="ui_gray_75">#8F8F8F</color>
+    <color name="ui_gray_100">#3C3F41</color>
+
     <color name="ui_black">#FF000000</color>
     <color name="ui_white">#FFFFFFFF</color>
     <color name="ui_transparent">#00000000</color>
 
+    <color name="ui_red_75">#65F40000</color>
 </resources>

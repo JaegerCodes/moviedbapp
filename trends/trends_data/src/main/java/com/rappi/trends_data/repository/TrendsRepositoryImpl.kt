@@ -10,8 +10,11 @@ import com.rappi.trends_domain.repository.TrendsRepository
 class TrendsRepositoryImpl(
     private val api: TrendsApi
 ): TrendsRepository, SafeApiCall {
-    override suspend fun trendsMovies(): Resource<TrendsMoviesDetail> = safeApiCall {
-        val trendsMoviesDto = api.getTrendsMovies()
+    override suspend fun trendsMovies(
+        page: Int,
+        language: String
+    ): Resource<TrendsMoviesDetail> = safeApiCall {
+        val trendsMoviesDto = api.getTrendsMovies(page, language)
         trendsMoviesDto.toTrendsMoviesDetail()
     }
 }

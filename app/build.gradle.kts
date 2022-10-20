@@ -78,7 +78,7 @@ dependencies {
     implementation(Coil.coil)
     implementation(Coil.coilVideo)
 
-    implementation(Google.material)
+    implementation(Lottie.lottie)
 
     implementation(Retrofit.okHttp)
     implementation(Retrofit.retrofit)

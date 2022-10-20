@@ -22,8 +22,8 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/movies_recycler"
-            android:layout_width="match_parent"
+            android:id="@+id/upcoming_recycler"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:minHeight="@dimen/ui_poster_medium_min_height"
             android:paddingLeft="@dimen/ui_normal_100"
@@ -37,7 +37,37 @@
             tools:itemCount="3"
             tools:listitem="@layout/ui_image_movie"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/upcoming_progress_center"
+            android:indeterminateTint="@color/ui_red_75"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/ui_normal_100"
+            app:layout_constraintTop_toTopOf="@id/upcoming_recycler"
+            app:layout_constraintBottom_toBottomOf="@id/upcoming_recycler"
+            app:layout_constraintStart_toStartOf="@id/upcoming_recycler"
+            app:layout_constraintEnd_toEndOf="@id/upcoming_recycler"
+            android:alpha="0.6"
+            android:layout_gravity="center"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/movie_load"
+            android:contentDescription="@string/upcoming_progress_center"/>
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/upcoming_progress_right"
+            android:visibility="gone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/upcoming_recycler"
+            app:layout_constraintBottom_toBottomOf="@id/upcoming_recycler"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:alpha="0.6"
+            android:layout_gravity="end"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/movie_load"
+            android:contentDescription="@string/upcoming_progress_right"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

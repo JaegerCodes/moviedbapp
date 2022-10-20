@@ -3,6 +3,7 @@ package com.rappi.upcoming_data.di
 import com.rappi.upcoming_data.remote.network.UpcomingApi
 import com.rappi.upcoming_data.repository.UpcomingRepositoryImpl
 import com.rappi.upcoming_domain.repository.UpcomingRepository
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,13 +20,10 @@ object UpcomingDataModule {
 
     @Provides
     @Singleton
-    fun provideUpcomingApi(client: OkHttpClient): UpcomingApi {
-        return Retrofit.Builder()
-            .baseUrl(UpcomingApi.BASE_URL)
-            .addConverterFactory(MoshiConverterFactory.create())
-            .client(client)
-            .build()
-            .create()
+    fun provideUpcomingApi(
+        retrofit: Retrofit
+    ): UpcomingApi {
+        return retrofit.create(UpcomingApi::class.java)
     }
 
     @Provides
@@ -37,5 +35,4 @@ object UpcomingDataModule {
             api = api
         )
     }
-
 }

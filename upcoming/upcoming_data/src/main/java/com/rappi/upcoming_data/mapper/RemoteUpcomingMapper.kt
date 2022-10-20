@@ -8,7 +8,7 @@ import com.rappi.upcoming_domain.model.UpcomingMoviesDetail
 fun UpcomingDto.toUpcomingMoviesDetail(): UpcomingMoviesDetail = UpcomingMoviesDetail(
     page = page?: 0,
     totalPages = totalPages?: 0,
-    upcoming = results?.mapNotNull { it?.toUpcomingMovie() }?: arrayListOf()
+    movies = results?.mapNotNull { it?.toUpcomingMovie() }?: arrayListOf()
 )
 
 fun Upcoming.toUpcomingMovie(): UpcomingMovie = UpcomingMovie(

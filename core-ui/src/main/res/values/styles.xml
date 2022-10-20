@@ -13,4 +13,16 @@
         <item name="fontFamily">@font/poppins_bold</item>
         <item name="android:letterSpacing">0.04</item>
     </style>
+
+
+
+    <style name="Widget.CoreUI.Chips.Filter" parent="">
+        <item name="chipIconVisible">false</item>
+        <item name="closeIconVisible">false</item>
+        <item name="chipStrokeColor">@color/ui_white</item>
+        <item name="chipStrokeWidth">2dp</item>
+        <item name="checkedIcon">@null</item>
+        <item name="android:textColor">@color/ui_selector_chip_filter_text</item>
+        <item name="chipBackgroundColor">@color/ui_selector_chip_filter_background</item>
+    </style>
 </resources>

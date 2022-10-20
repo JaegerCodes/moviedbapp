@@ -10,8 +10,11 @@ import com.rappi.upcoming_domain.repository.UpcomingRepository
 class UpcomingRepositoryImpl(
     private val api: UpcomingApi
 ): UpcomingRepository, SafeApiCall {
-    override suspend fun upcomingMovies(): Resource<UpcomingMoviesDetail> = safeApiCall {
-        val upcomingMoviesDto = api.getUpcomingMovies()
+    override suspend fun upcomingMovies(
+        page: Int,
+        language: String
+    ): Resource<UpcomingMoviesDetail> = safeApiCall {
+        val upcomingMoviesDto = api.getUpcomingMovies(page, language)
         upcomingMoviesDto.toUpcomingMoviesDetail()
     }
 }

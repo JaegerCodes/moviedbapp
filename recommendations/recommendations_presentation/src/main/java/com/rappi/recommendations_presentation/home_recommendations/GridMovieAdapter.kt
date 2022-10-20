@@ -1,17 +1,20 @@
 package com.rappi.recommendations_presentation.home_recommendations
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.rappi.core.domain.model.DMovie
 import com.rappi.core.presentation.ui_extensions.PosterSize
 import com.rappi.core_ui.databinding.UiGridImageMovieBinding
 import com.rappi.recommendations_domain.model.RecommendationsMovie
 
 class GridMovieAdapter(
-    private val movies: List<RecommendationsMovie>
+    val movies: MutableList<DMovie> = mutableListOf(),
+    val scrollToPosition: (scrollPosition: Int) -> Unit = {},
 ): RecyclerView.Adapter<GridMovieAdapter.MovieViewHolder>() {
+
+    private val imageLoadCrossfade = 300
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val binding = UiGridImageMovieBinding
@@ -28,22 +31,17 @@ class GridMovieAdapter(
     inner class MovieViewHolder(
         private val binding: UiGridImageMovieBinding
     ): RecyclerView.ViewHolder(binding.root) {
-        fun bindItem(model: RecommendationsMovie) = with(binding) {
+        fun bindItem(model: DMovie) = with(binding) {
             movieImage.load(
-                PosterSize.Regular.url(model.posterPath)
+                PosterSize.Large.url(model.posterPath)
             ) {
-                crossfade(IMAGE_LOAD_CROSSFADE)
+                crossfade(imageLoadCrossfade)
                 listener(onError = { _, _ ->
-                    movieButton.visibility = View.GONE
+                    movieImage.load(com.rappi.core_ui.R.drawable.ui_ic_no_image)
                 })
             }
             movieButton.setOnClickListener {
-
             }
         }
-    }
-
-    companion object {
-        private const val IMAGE_LOAD_CROSSFADE = 300
     }
 }

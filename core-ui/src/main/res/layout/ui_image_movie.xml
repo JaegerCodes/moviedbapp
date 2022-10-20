@@ -4,7 +4,22 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/block_container"
+    tools:minHeight="@dimen/ui_poster_medium_min_height"
+    tools:minWidth="@dimen/ui_poster_medium_min_height"
     >
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:visibility="gone"
+        android:indeterminateTint="@color/ui_red_75"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/ui_normal_100"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:indeterminate="true"/>
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/movie_image"
         android:layout_width="0dp"
@@ -20,6 +35,7 @@
         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CoreUI.MovieImage"
         android:contentDescription="@string/ui_image_movie"
         android:layout_marginEnd="@dimen/ui_normal_100"/>
+
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/movie_button"
         android:background="?selectableItemBackground"
