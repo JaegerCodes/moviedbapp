@@ -11,5 +11,6 @@ class GetTrendsMoviesRemote @Inject constructor(
     operator fun invoke(page: Int, language: String) = flow {
         emit(Resource.Loading)
         emit(repository.trendsMovies(page, language))
+        emit(Resource.Empty)
     }
 }

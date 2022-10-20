@@ -5,6 +5,7 @@ apply {
 dependencies {
     "implementation"(Retrofit.okHttpLoggingInterceptor)
     "implementation"(Retrofit.retrofit)
+    "implementation"(Retrofit.moshiConverter)
 
     "implementation"(Ui.material)
     "implementation"(Ui.navigationUiKtx)

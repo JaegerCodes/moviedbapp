@@ -12,8 +12,4 @@ interface TrendsApi {
         @Query("page") page: Int,
         @Query("language") language: String = Languages.EnUs.name
     ): TrendsDto
-
-    companion object {
-        const val BASE_URL = BuildConfig.BASE_URL
-    }
 }

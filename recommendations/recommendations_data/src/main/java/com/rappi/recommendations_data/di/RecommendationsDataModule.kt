@@ -16,16 +16,12 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object RecommendationsDataModule {
-
     @Provides
     @Singleton
-    fun provideRecommendationsApi(client: OkHttpClient): RecommendationsApi {
-        return Retrofit.Builder()
-            .baseUrl(RecommendationsApi.BASE_URL)
-            .addConverterFactory(MoshiConverterFactory.create())
-            .client(client)
-            .build()
-            .create()
+    fun provideRecommendationsApi(
+        retrofit: Retrofit
+    ): RecommendationsApi {
+        return retrofit.create(RecommendationsApi::class.java)
     }
 
     @Provides

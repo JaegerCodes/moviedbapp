@@ -24,7 +24,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/trends_recycler"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/ui_poster_medium_min_height"
             android:minHeight="@dimen/ui_poster_medium_min_height"
             android:paddingLeft="@dimen/ui_normal_100"
             android:layout_marginTop="@dimen/ui_small_125"
@@ -38,7 +38,7 @@
             tools:listitem="@layout/ui_image_movie"/>
 
         <com.airbnb.lottie.LottieAnimationView
-            android:visibility="visible"
+            android:visibility="gone"
             android:id="@+id/trends_progress_center"
             android:indeterminateTint="@color/ui_red_75"
             android:layout_width="wrap_content"

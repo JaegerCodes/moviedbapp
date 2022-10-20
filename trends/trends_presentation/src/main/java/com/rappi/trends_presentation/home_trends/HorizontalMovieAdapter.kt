@@ -16,6 +16,8 @@ class HorizontalMovieAdapter(
 
     private val imageLoadCrossfade = 300
 
+    override fun getItemCount() = movies.size
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val binding = UiImageMovieBinding
             .inflate(LayoutInflater.from(parent.context), parent, false)
@@ -26,7 +28,6 @@ class HorizontalMovieAdapter(
         return MovieViewHolder(binding)
     }
 
-    override fun getItemCount() = movies.size
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.bindItem(movies[position])
