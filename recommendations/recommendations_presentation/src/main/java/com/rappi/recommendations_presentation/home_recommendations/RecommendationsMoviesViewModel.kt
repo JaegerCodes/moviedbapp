@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rappi.core.domain.model.DMovieDetail
-import com.rappi.core.presentation.model.Languages
+import com.rappi.core.app.Languages
 import com.rappi.recommendations_domain.model.FilteredMovies
 import com.rappi.recommendations_domain.use_case.GetMoviesByLanguage
 import com.rappi.recommendations_domain.use_case.GetMoviesByYear

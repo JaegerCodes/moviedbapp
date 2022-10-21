@@ -2,7 +2,7 @@ package com.rappi.upcoming_data.remote.network
 
 import com.rappi.upcoming_data.remote.dto.UpcomingDto
 import com.rappi.core.BuildConfig
-import com.rappi.core.presentation.model.Languages
+import com.rappi.core.app.Languages
 import retrofit2.http.GET
 import retrofit2.http.Query
 

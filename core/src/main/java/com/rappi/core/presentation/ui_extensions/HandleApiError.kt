@@ -5,11 +5,11 @@ import com.rappi.core.domain.model.Resource
 
 fun Fragment.handleApiError(
     failure: Resource.Failure,
-    onRequestFail: () -> Unit = {}
+    onIsNetworkError: () -> Unit = {},
 ) {
     when {
         failure.isNetworkError -> {
-            onRequestFail.invoke()
+            onIsNetworkError.invoke()
         }
         failure.errorCode == 401 -> {
             // Todo: redirect to Login page

@@ -7,14 +7,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rappi.core.domain.model.DMovieDetail
 import com.rappi.core.domain.model.Resource
-import com.rappi.core.presentation.model.Languages
-import com.rappi.upcoming_domain.model.UpcomingMoviesDetail
+import com.rappi.core.app.Languages
 import com.rappi.upcoming_domain.use_case.GetNextUpcomingMoviesRemote
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel

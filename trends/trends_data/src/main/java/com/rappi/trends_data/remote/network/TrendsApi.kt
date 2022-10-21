@@ -1,8 +1,7 @@
 package com.rappi.trends_data.remote.network
 
 import com.rappi.trends_data.remote.dto.TrendsDto
-import com.rappi.core.BuildConfig
-import com.rappi.core.presentation.model.Languages
+import com.rappi.core.app.Languages
 import retrofit2.http.GET
 import retrofit2.http.Query
 

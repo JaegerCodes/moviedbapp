@@ -1,7 +1,7 @@
 package com.rappi.recommendations_data.remote.network
 
 import com.rappi.recommendations_data.remote.dto.RecommendationsDto
-import com.rappi.core.presentation.model.Languages
+import com.rappi.core.app.Languages
 import retrofit2.http.GET
 import retrofit2.http.Query
 
