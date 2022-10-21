@@ -1,6 +1,5 @@
 package com.rappi.recommendations_presentation.home_recommendations
 
-import GridMovieAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -45,7 +44,7 @@ class HomeRecommendationsFragment : Fragment() {
     private var checkedChip: Chip? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.filterChips.setOnCheckedStateChangeListener { group, checkedIds ->
+        binding.filterChips.setOnCheckedStateChangeListener { _, checkedIds ->
             checkedIds.map { chipId ->
                 checkedChip = requireView().findViewById(chipId)
                 when (chipId) {

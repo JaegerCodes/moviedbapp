@@ -15,7 +15,7 @@
             app:destination="@id/upcomingMovieDetail" />
     </fragment>
 
-    <fragment android:id="@+id/upcomingMovieDetail"
+    <dialog android:id="@+id/upcomingMovieDetail"
         android:name="com.rappi.moviedetail_presentation.moviedetail.MovieDetailFragment"
         android:label="fragment_upcoming_movie_detail"
         tools:layout="@layout/fragment_movie_detail"/>

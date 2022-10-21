@@ -1,3 +1,5 @@
+package com.rappi.recommendations_presentation.home_recommendations
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -13,8 +15,6 @@ class GridMovieAdapter(
     val movies: MutableList<DMovie> = mutableListOf(),
     val getMovieDetail: (movie: DMovie, posterView: ImageView) -> Unit = { _, _ ->},
 ): RecyclerView.Adapter<GridMovieAdapter.MovieViewHolder>() {
-
-    private val tag = "recommendation"
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val binding = UiGridImageMovieBinding
@@ -42,17 +42,10 @@ class GridMovieAdapter(
                     }
                 )
             }
-            ViewCompat.setTransitionName(movieImage, "$tag${model.id}")
+            ViewCompat.setTransitionName(movieImage, "recommendation${model.id}")
             movieButton.setOnClickListener {
                 getMovieDetail.invoke(model, movieImage)
             }
         }
-    }
-
-    fun setNewResults(upcomingMovies: MutableList<DMovie> = mutableListOf()) {
-        movies.removeAll(movies)
-        notifyItemRangeChanged(0, movies.size -1)
-        movies.addAll(upcomingMovies)
-        notifyItemRangeInserted(0, upcomingMovies.size -1)
     }
 }
