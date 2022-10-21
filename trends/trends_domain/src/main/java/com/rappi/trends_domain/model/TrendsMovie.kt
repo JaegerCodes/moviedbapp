@@ -6,7 +6,7 @@ data class TrendsMovie (
     override val adult: Boolean,
     override val backdropPath: String,
     override val genreIDS: List<Long>,
-    override val id: Long,
+    override val id: String,
     override val originalLanguage: String,
     override val originalTitle: String,
     override val overview: String,

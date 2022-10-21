@@ -9,5 +9,14 @@
         android:id="@+id/homeTrendsFragment"
         android:name="com.rappi.trends_presentation.home_trends.HomeTrendsFragment"
         android:label="fragment_home_trends"
-        tools:layout="@layout/fragment_home_trends" />
+        tools:layout="@layout/fragment_home_trends" >
+        <action
+            android:id="@+id/action_homeTrendsFragment_to_trendsMovieDetail"
+            app:destination="@id/trendsMovieDetail" />
+    </fragment>
+
+    <fragment android:id="@+id/trendsMovieDetail"
+        android:name="com.rappi.moviedetail_presentation.moviedetail.MovieDetailFragment"
+        android:label="fragment_upcoming_movie_detail"
+        tools:layout="@layout/fragment_movie_detail"/>
 </navigation>

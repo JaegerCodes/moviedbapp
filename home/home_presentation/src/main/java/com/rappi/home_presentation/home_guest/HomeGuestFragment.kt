@@ -14,6 +14,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeGuestFragment : Fragment() {
     private var _binding: FragmentHomeGuestBinding? = null
     private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

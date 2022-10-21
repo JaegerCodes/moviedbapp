@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/home_presentation">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_presentation"
+    app:startDestination="@id/homeGuestFragment">
 
+    <fragment
+        android:id="@+id/homeGuestFragment"
+        android:name="com.rappi.home_presentation.home_guest.HomeGuestFragment"
+        android:label="fragment_home_guest"
+        tools:layout="@layout/fragment_home_guest" >
+    </fragment>
 </navigation>

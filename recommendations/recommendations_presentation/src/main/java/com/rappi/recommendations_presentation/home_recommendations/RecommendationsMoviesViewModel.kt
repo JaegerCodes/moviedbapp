@@ -22,10 +22,11 @@ class RecommendationsMoviesViewModel @Inject constructor(
     private var recommendationsMoviesJob: Job? = null
     private var nextRecommendationsMovies: Job? = null
 
-    private var currentPageIndex = 1
+    private var currentPageIndex = 3
     private var totalPages: Long = 0
     private var currentLanguage = Languages.EnUs.name
-    private var releaseDate = ""
+    private var originalLanguage = "en"
+    private var releaseDate = "2020"
 
     private val _recommendationsMovies: MutableLiveData<FilteredMovies> = MutableLiveData()
     val recommendationsMovies: LiveData<FilteredMovies> = _recommendationsMovies
@@ -43,10 +44,9 @@ class RecommendationsMoviesViewModel @Inject constructor(
     }
 
     fun getMoviesWithFilter(selectedLanguage: String) {
-        currentLanguage = selectedLanguage
-
+        originalLanguage = selectedLanguage
         nextRecommendationsMovies?.cancel()
-        nextRecommendationsMovies = getMoviesWithFilterRemote(currentPageIndex, currentLanguage, )
+        nextRecommendationsMovies = getMoviesWithFilterRemote(currentPageIndex, originalLanguage)
             .onEach { response ->
                 _filteredMovies.postValue(response)
             }

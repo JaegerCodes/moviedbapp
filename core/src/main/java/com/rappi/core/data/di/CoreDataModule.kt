@@ -31,7 +31,7 @@ object CoreDataModule {
     @Provides
     @Singleton
     fun provideMoshi(): Moshi = Moshi.Builder()
-        .add(DateMoshiAdapter())
+        .add(DateMoshiAdapter)
         .build()
 
     @Provides

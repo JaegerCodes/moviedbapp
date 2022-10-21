@@ -34,3 +34,7 @@ include ':trends:trends_data'
 
 include ':home'
 include ':home:home_presentation'
+include ':moviedetail'
+include ':moviedetail:moviedetail_data'
+include ':moviedetail:moviedetail_domain'
+include ':moviedetail:moviedetail_presentation'

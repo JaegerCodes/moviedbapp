@@ -1,4 +1,16 @@
 <resources>
+    <style name="Theme.CoreUI.Button.LightGrayH5" parent="">
+        <item name="android:textColor">@color/ui_black</item>
+        <item name="android:backgroundTint">@color/ui_gray_70</item>
+        <item name="android:textSize">@dimen/ui_h6_125</item>
+        <item name="fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="paddingStart">0dp</item>
+        <item name="paddingEnd">0dp</item>
+    </style>
 
     <style name="Theme.CoreUI.Text100H4.Light" parent="TextAppearance.MaterialComponents.Headline4">
         <item name="android:textColor">@color/ui_white</item>
@@ -6,15 +18,39 @@
         <item name="fontFamily">@font/poppins_bold</item>
         <item name="android:letterSpacing">0.04</item>
     </style>
-
+    <style name="Theme.CoreUI.Text150H4.Light.ExtraBold" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:textColor">@color/ui_white</item>
+        <item name="android:textSize">@dimen/ui_h4_125</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
     <style name="Theme.CoreUI.Text175H5.Light" parent="TextAppearance.MaterialComponents.Headline5">
         <item name="android:textColor">@color/ui_white</item>
         <item name="android:textSize">@dimen/ui_h5_175</item>
         <item name="fontFamily">@font/poppins_bold</item>
         <item name="android:letterSpacing">0.04</item>
     </style>
-
-
+    <style name="Theme.CoreUI.Text125H6.Light.Bold" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textColor">@color/ui_white</item>
+        <item name="android:textSize">@dimen/ui_h6_125</item>
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+    <style name="Theme.CoreUI.Text125H6.Light" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textColor">@color/ui_white</item>
+        <item name="android:textSize">@dimen/ui_h6_125</item>
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+    <style name="Theme.CoreUI.ButtonText170H5.Light" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textColor">@color/ui_white</item>
+        <item name="android:textSize">@dimen/ui_h5_170</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
 
     <style name="Widget.CoreUI.Chips.Filter" parent="">
         <item name="chipIconVisible">false</item>

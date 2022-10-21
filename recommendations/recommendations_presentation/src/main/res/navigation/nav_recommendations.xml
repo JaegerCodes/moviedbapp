@@ -9,5 +9,13 @@
         android:id="@+id/homeRecommendationsFragment"
         android:name="com.rappi.recommendations_presentation.home_recommendations.HomeRecommendationsFragment"
         android:label="fragment_home_recommendations"
-        tools:layout="@layout/fragment_home_recommendations" />
+        tools:layout="@layout/fragment_home_recommendations" >
+    </fragment>
+
+    <dialog android:id="@+id/recommendationsMovieDetail"
+        android:name="com.rappi.moviedetail_presentation.moviedetail.MovieDetailFragment"
+        android:label="fragment_upcoming_movie_detail"
+        tools:layout="@layout/fragment_movie_detail"/>
+
+
 </navigation>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".moviedetail.MovieDetailFragment"
+    android:theme="@style/Theme.CoreUI"
+    android:background="@color/ui_gray_100">
+
+    <ImageView
+        android:id="@+id/hero_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:transitionName="hero_image"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ui_ic_no_image"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:alpha="0.65"
+        app:layout_constraintVertical_bias="0"
+        android:background="@drawable/ui_background_gradient_black_top"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:alpha="0.65"
+        android:background="@drawable/ui_background_gradient_black_bottom"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/contianer_overview"
+        android:layout_marginHorizontal="@dimen/ui_small_150">
+
+        <TextView
+            android:id="@+id/title_movie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Her"
+            android:gravity="center"
+            style="@style/Theme.CoreUI.Text150H4.Light.ExtraBold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/about_buttons"
+            android:layout_marginBottom="@dimen/ui_normal_120"/>
+        <LinearLayout
+            android:id="@+id/about_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            app:layout_constraintBottom_toTopOf="@+id/genrs_tags"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="@dimen/ui_normal_100">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/year_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Theme.CoreUI.Button.LightGrayH5"
+                android:paddingHorizontal="@dimen/ui_small_125"
+                tools:text="2013"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/language_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/ui_small_100"
+                style="@style/Theme.CoreUI.Button.LightGrayH5"
+                android:paddingHorizontal="@dimen/ui_small_125"
+                tools:text="en"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/average_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/ui_small_100"
+                style="@style/Theme.CoreUI.Button.LightGrayH5"
+                android:backgroundTint="@color/ui_yellow"
+                android:paddingLeft="@dimen/ui_small_25"
+                android:paddingRight="@dimen/ui_small_100"
+                android:drawableLeft="@drawable/ui_ic_star_dark"
+                tools:text="8.0"/>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/genrs_tags"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/ui_normal_200"
+            app:layout_constraintBottom_toTopOf="@+id/label_see_trailer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="horizontal"
+            tools:itemCount="1"
+            android:layout_marginBottom="@dimen/ui_normal_150" />
+
+        <TextView
+            android:id="@+id/label_see_trailer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/watch_trailer"
+            android:padding="@dimen/ui_normal_100"
+            android:gravity="center"
+            style="@style/Theme.CoreUI.ButtonText170H5.Light"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/ui_normal_150"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/see_trailer_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CoreUI.MovieImage"
+            app:strokeWidth="@dimen/ui_small_25"
+            app:strokeColor="@color/ui_gray_75"
+            android:alpha="0.8"
+            android:background="?selectableItemBackground"
+            app:layout_constraintTop_toTopOf="@+id/label_see_trailer"
+            app:layout_constraintBottom_toBottomOf="@id/label_see_trailer"
+            app:layout_constraintStart_toStartOf="@+id/label_see_trailer"
+            app:layout_constraintEnd_toEndOf="@id/label_see_trailer"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/contianer_overview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/ui_small_150"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="1.15">
+
+        <TextView
+            android:id="@+id/labelplot"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:text="@string/movie_plot"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/plotOverview"
+            android:layout_marginBottom="@dimen/ui_small_50"
+            style="@style/Theme.CoreUI.Text125H6.Light.Bold"/>
+        <TextView
+            android:id="@+id/plotOverview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Theme.CoreUI.Text125H6.Light"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Framed in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope."/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/ui_ic_back_light"
+        android:layout_marginTop="@dimen/ui_normal_100"
+        android:layout_marginStart="@dimen/ui_small_150"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CoreUI.Button.Circle"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
