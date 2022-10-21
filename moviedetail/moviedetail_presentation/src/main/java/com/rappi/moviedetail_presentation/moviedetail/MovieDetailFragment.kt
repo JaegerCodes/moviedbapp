@@ -66,7 +66,7 @@ class MovieDetailFragment : DialogFragment() {
             )
         }
 
-        binding.backButton.setOnClickListener {
+        binding.appBar.setNavigationOnClickListener {
             dismiss()
         }
     }
