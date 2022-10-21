@@ -145,12 +145,13 @@
         android:id="@+id/contianer_overview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/ui_small_150"
+        android:paddingHorizontal="@dimen/ui_small_150"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="1.15">
+        app:layout_constraintVertical_bias="1"
+        android:background="@drawable/ui_background_gradient_black_bottom">
 
         <TextView
             android:id="@+id/labelplot"

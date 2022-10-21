@@ -9,7 +9,7 @@ data class Recommendations (
     @field:Json(name="genre_ids")
     val genreIDS: List<Long?>?,
     val id: String?,
-    @field:Json(name="original_Language")
+    @field:Json(name="original_language")
     val originalLanguage: String?,
     @field:Json(name="original_title")
     val originalTitle: String?,
