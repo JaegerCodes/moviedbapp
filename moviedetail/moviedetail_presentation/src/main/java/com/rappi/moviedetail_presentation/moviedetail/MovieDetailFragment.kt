@@ -87,7 +87,7 @@ class MovieDetailFragment : DialogFragment() {
         }
 
         val movieId = arguments?.getString(MOVIE_ID)?: ""
-        movieDetailViewModel.getMovieDetail(movieId, Languages.EnUs.name)
+        movieDetailViewModel.getMovieDetail(movieId, Languages.EsES.name)
     }
 
     override fun getTheme(): Int = android.R.style.Theme_Black_NoTitleBar_Fullscreen

@@ -48,4 +48,11 @@ class GridMovieAdapter(
             }
         }
     }
+
+    fun setNewResults(upcomingMovies: MutableList<DMovie> = mutableListOf()) {
+        movies.removeAll(movies)
+        notifyItemRangeChanged(0, movies.size -1)
+        movies.addAll(upcomingMovies)
+        notifyItemRangeInserted(0, upcomingMovies.size -1)
+    }
 }
