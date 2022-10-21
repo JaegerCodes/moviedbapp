@@ -1,20 +1,20 @@
-package com.rappi.recommendations_presentation.home_recommendations
-
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.rappi.core.domain.model.DMovie
 import com.rappi.core.presentation.ui_extensions.PosterSize
+import com.rappi.core_ui.R
 import com.rappi.core_ui.databinding.UiGridImageMovieBinding
-import com.rappi.recommendations_domain.model.RecommendationsMovie
 
 class GridMovieAdapter(
     val movies: MutableList<DMovie> = mutableListOf(),
-    val getMovieDetail: (movieID: String) -> Unit = {},
+    val getMovieDetail: (movie: DMovie, posterView: ImageView) -> Unit = { _, _ ->},
 ): RecyclerView.Adapter<GridMovieAdapter.MovieViewHolder>() {
 
-    private val imageLoadCrossfade = 300
+    private val tag = "recommendation"
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val binding = UiGridImageMovieBinding
@@ -35,13 +35,16 @@ class GridMovieAdapter(
             movieImage.load(
                 PosterSize.Large.url(model.posterPath)
             ) {
-                crossfade(imageLoadCrossfade)
-                listener(onError = { _, _ ->
-                    movieImage.load(com.rappi.core_ui.R.drawable.ui_ic_no_image)
-                })
+                crossfade(300)
+                listener(
+                    onError = { _, _ ->
+                        movieImage.load(R.drawable.ui_ic_no_image)
+                    }
+                )
             }
+            ViewCompat.setTransitionName(movieImage, "$tag${model.id}")
             movieButton.setOnClickListener {
-                getMovieDetail.invoke(model.id.toString())
+                getMovieDetail.invoke(model, movieImage)
             }
         }
     }

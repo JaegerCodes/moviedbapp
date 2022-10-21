@@ -13,5 +13,4 @@ dependencies {
     "implementation"(Ui.lifecycleLivedataKtx)
     "implementation"(Ui.lifecycleRuntimeKtx)
     "implementation"(Lottie.lottie)
-
 }

@@ -1,4 +1,6 @@
 <resources>
     <string name="ui_grid_image_movie">Core Ui module component image grid</string>
     <string name="ui_image_movie">Core Ui module component image horizontal list</string>
+    <string name="movie_plot">MOVIE PLOT</string>
+    <string name="watch_trailer">Ver trailer</string>
 </resources>

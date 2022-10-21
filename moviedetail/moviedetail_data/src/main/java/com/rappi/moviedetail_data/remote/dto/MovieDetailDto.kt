@@ -39,7 +39,7 @@ data class MovieDetailDto (
     val productionCountries: List<ProductionCountry>,
 
     @field:Json(name = "release_date")
-    val releaseDate: Date,
+    val releaseDate: String,
 
     val revenue: Long,
     val runtime: Long,
@@ -53,7 +53,7 @@ data class MovieDetailDto (
     val video: Boolean,
 
     @field:Json(name = "vote_average")
-    val voteAverage: String,
+    val voteAverage: Double,
 
     @field:Json(name = "vote_count")
     val voteCount: Long

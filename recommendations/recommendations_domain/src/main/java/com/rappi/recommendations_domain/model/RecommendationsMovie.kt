@@ -6,7 +6,7 @@ data class RecommendationsMovie (
     override val adult: Boolean = false,
     override val backdropPath: String = "",
     override val genreIDS: List<Long> = arrayListOf(),
-    override val id: Long = 0,
+    override val id: String = "",
     override val originalLanguage: String = "",
     override val originalTitle: String = "",
     override val overview: String = "",

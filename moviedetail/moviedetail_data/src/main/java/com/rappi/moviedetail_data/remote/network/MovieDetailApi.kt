@@ -1,6 +1,5 @@
 package com.rappi.moviedetail_data.remote.network
 
-import com.rappi.core.presentation.model.Languages
 import com.rappi.moviedetail_data.remote.dto.MovieDetailDto
 import retrofit2.http.GET
 import retrofit2.http.Path

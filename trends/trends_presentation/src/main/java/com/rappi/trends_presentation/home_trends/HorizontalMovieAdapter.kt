@@ -48,7 +48,7 @@ class HorizontalMovieAdapter(
                 })
             }
             movieButton.setOnClickListener {
-                getMovieDetail.invoke(model.id.toString())
+                getMovieDetail.invoke(model.id)
             }
         }
     }

@@ -6,9 +6,9 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-class DateMoshiAdapter {
+object DateMoshiAdapter {
 
-    private val dateFormat = SimpleDateFormat("yyy-MM-dd'T'HH:mm:ss", Locale.US)
+    private val dateFormat = SimpleDateFormat("yyy-MM-dd", Locale.US)
 
     @ToJson
     fun toJson(date: Date): String = dateFormat.format(date)

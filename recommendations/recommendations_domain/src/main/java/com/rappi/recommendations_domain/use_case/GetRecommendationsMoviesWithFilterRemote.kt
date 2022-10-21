@@ -20,8 +20,8 @@ class GetRecommendationsMoviesWithFilterRemote @Inject constructor(
                 val filteredMovies = response.data.movies
                     .take(listCount)
                     .filter {
-                        it.originalLanguage == language &&
-                                it.releaseDate == releaseData
+                        it.originalLanguage == language ||
+                        it.releaseDate == releaseData
                     }
                 var filteredData = response.data
                 filteredData = filteredData.copy(

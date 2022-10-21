@@ -11,7 +11,6 @@ class GetMovieDetailRemote @Inject constructor(
     operator fun invoke(movieID: String, language: String) = flow {
         emit(Resource.Loading)
         emit(repository.movieDetail(movieID, language))
-        emit(Resource.Empty)
     }
 }
 

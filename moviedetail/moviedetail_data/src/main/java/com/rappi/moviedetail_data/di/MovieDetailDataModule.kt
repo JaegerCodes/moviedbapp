@@ -18,7 +18,8 @@ object MovieDetailDataModule {
     fun provideTrendsApi(
         retrofit: Retrofit
     ): MovieDetailApi {
-        return retrofit.create(MovieDetailApi::class.java)
+        return retrofit
+            .create(MovieDetailApi::class.java)
     }
 
     @Provides

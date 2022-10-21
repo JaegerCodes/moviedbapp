@@ -8,7 +8,7 @@ import java.util.Date
 data class MovieDetail(
     val plot: String,
     val genrs: List<MovieGenre>,
-    val releaseDate: Date,
+    val year: String,
     val originalLanguage: String,
     val voteAverage: String,
     val posterPath: String,
