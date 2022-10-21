@@ -9,6 +9,6 @@ interface RecommendationsApi {
     @GET("3/movie/top_rated")
     suspend fun getRecommendationsMovies(
         @Query("page") page: Int,
-        @Query("language") language: String = Languages.EnUs.name
+        @Query("language") language: String = Languages.EsES.name
     ): RecommendationsDto
 }

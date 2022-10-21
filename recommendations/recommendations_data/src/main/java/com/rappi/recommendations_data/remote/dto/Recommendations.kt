@@ -8,8 +8,8 @@ data class Recommendations (
     val backdropPath: String?,
     @field:Json(name="genre_ids")
     val genreIDS: List<Long?>?,
-    val id: Long?,
-    @field:Json(name="original_Language")
+    val id: String?,
+    @field:Json(name="original_language")
     val originalLanguage: String?,
     @field:Json(name="original_title")
     val originalTitle: String?,

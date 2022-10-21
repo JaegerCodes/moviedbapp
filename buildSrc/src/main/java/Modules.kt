@@ -17,4 +17,8 @@ object Modules {
     const val trendsData = ":trends:trends_data"
     const val trendsDomain = ":trends:trends_domain"
     const val trendsPresentation = ":trends:trends_presentation"
+
+    const val movieDetailData = ":moviedetail:moviedetail_data"
+    const val movieDetailDomain = ":moviedetail:moviedetail_domain"
+    const val movieDetailsPresentation = ":moviedetail:moviedetail_presentation"
 }

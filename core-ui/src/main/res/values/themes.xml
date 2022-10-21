@@ -4,7 +4,7 @@
     <style name="Theme.CoreUI" parent="Base.Theme.CoreUI" />
 
     <style name="Base.Theme.CoreUI" parent="Base.Theme.MaterialThemeBuilder">
-
+        <item name="textAppearanceButton">@style/Theme.CoreUI.Button.LightGrayH5</item>
         <item name="selectableItemBackground">@drawable/ui_ripple_movie_gallery_item</item>
     </style>
 

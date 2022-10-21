@@ -2,19 +2,20 @@ package com.rappi.trends_presentation.home_trends
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.rappi.core.domain.model.DMovie
 import com.rappi.core.presentation.ui_extensions.PosterSize
+import com.rappi.core_ui.R
 import com.rappi.core_ui.databinding.UiImageMovieBinding
 
 class HorizontalMovieAdapter(
     val movies: MutableList<DMovie> = mutableListOf(),
-    val scrollToPosition: (scrollPosition: Int) -> Unit = {},
+    val getMovieDetail: (movie: DMovie, posterView: ImageView) -> Unit = { _, _ ->},
     private val imageWidth: Int = 0
 ): RecyclerView.Adapter<HorizontalMovieAdapter.MovieViewHolder>() {
-
-    private val imageLoadCrossfade = 300
 
     override fun getItemCount() = movies.size
 
@@ -37,27 +38,21 @@ class HorizontalMovieAdapter(
         private val binding: UiImageMovieBinding
     ): RecyclerView.ViewHolder(binding.root) {
         fun bindItem(model: DMovie) = with(binding) {
-
             movieImage.load(
                 PosterSize.Large.url(model.posterPath)
             ) {
-                crossfade(imageLoadCrossfade)
-                listener(onError = { _, _ ->
-                    movieImage.load(com.rappi.core_ui.R.drawable.ui_ic_no_image)
-                })
+                crossfade(300)
+                placeholder(R.drawable.ui_ic_no_image)
+                listener(
+                    onError = { _, _ ->
+                        movieImage.load(R.drawable.ui_ic_no_image)
+                    }
+                )
             }
+            ViewCompat.setTransitionName(movieImage, "trends${model.id}")
             movieButton.setOnClickListener {
+                getMovieDetail.invoke(model, movieImage)
             }
-        }
-    }
-
-    fun insertMoviesOnRequestNextMoviesEnds(nextMovies: List<DMovie>) {
-        if (nextMovies.isNotEmpty()) {
-            val positionStart = movies.size
-            val itemCount = movies.size + nextMovies.size
-            movies.addAll(nextMovies)
-            notifyItemRangeChanged(positionStart, itemCount)
-            scrollToPosition.invoke(positionStart)
         }
     }
 }

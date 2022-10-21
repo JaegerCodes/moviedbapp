@@ -7,7 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.rappi.core.domain.model.DMovieDetail
 import com.rappi.core.presentation.model.Languages
 import com.rappi.recommendations_domain.model.FilteredMovies
-import com.rappi.recommendations_domain.use_case.GetRecommendationsMoviesWithFilterRemote
+import com.rappi.recommendations_domain.use_case.GetMoviesByLanguage
+import com.rappi.recommendations_domain.use_case.GetMoviesByYear
 import com.rappi.recommendations_domain.use_case.GetRecommendationsMoviesRemote
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
@@ -17,15 +18,15 @@ import javax.inject.Inject
 @HiltViewModel
 class RecommendationsMoviesViewModel @Inject constructor(
     private val getRecommendationsMoviesRemote: GetRecommendationsMoviesRemote,
-    private val getMoviesWithFilterRemote: GetRecommendationsMoviesWithFilterRemote
+    private val getMoviesByLanguage: GetMoviesByLanguage,
+    private val getMoviesByYear: GetMoviesByYear
 ): ViewModel() {
     private var recommendationsMoviesJob: Job? = null
     private var nextRecommendationsMovies: Job? = null
 
-    private var currentPageIndex = 1
+    private var currentPageIndex = 3
     private var totalPages: Long = 0
-    private var currentLanguage = Languages.EnUs.name
-    private var releaseDate = ""
+    private var currentLanguage = Languages.EsES.name
 
     private val _recommendationsMovies: MutableLiveData<FilteredMovies> = MutableLiveData()
     val recommendationsMovies: LiveData<FilteredMovies> = _recommendationsMovies
@@ -42,11 +43,19 @@ class RecommendationsMoviesViewModel @Inject constructor(
             .launchIn(viewModelScope)
     }
 
-    fun getMoviesWithFilter(selectedLanguage: String) {
-        currentLanguage = selectedLanguage
+    fun getMoviesByOriginalLanguage(selectedLanguage: String) {
 
         nextRecommendationsMovies?.cancel()
-        nextRecommendationsMovies = getMoviesWithFilterRemote(currentPageIndex, currentLanguage, )
+        nextRecommendationsMovies = getMoviesByLanguage(currentPageIndex, selectedLanguage)
+            .onEach { response ->
+                _filteredMovies.postValue(response)
+            }
+            .launchIn(viewModelScope)
+    }
+
+    fun getMoviesByYear(year: String) {
+        nextRecommendationsMovies?.cancel()
+        nextRecommendationsMovies = getMoviesByYear(currentPageIndex, year)
             .onEach { response ->
                 _filteredMovies.postValue(response)
             }

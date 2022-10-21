@@ -10,7 +10,7 @@ interface UpcomingApi {
     @GET("3/movie/upcoming")
     suspend fun getUpcomingMovies(
         @Query("page") page: Int,
-        @Query("language") language: String = Languages.EnUs.name
+        @Query("language") language: String = Languages.EsES.name
     ): UpcomingDto
 
     companion object {

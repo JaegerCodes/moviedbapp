@@ -72,6 +72,10 @@ dependencies {
     implementation(project(Modules.recommendationsDomain))
     implementation(project(Modules.recommendationsData))
 
+    implementation(project(Modules.movieDetailData))
+    implementation(project(Modules.movieDetailDomain))
+    implementation(project(Modules.movieDetailsPresentation))
+
     implementation(AndroidX.coreKtx)
     implementation(AndroidX.appCompat)
 
