@@ -1,7 +1,7 @@
 package com.rappi.recommendations_domain.use_case
 
 import com.rappi.core.domain.model.Resource
-import com.rappi.core.presentation.model.Languages
+import com.rappi.core.app.Languages
 import com.rappi.recommendations_domain.model.FilteredMovies
 import com.rappi.recommendations_domain.repository.RecommendationsRepository
 import kotlinx.coroutines.flow.Flow

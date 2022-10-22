@@ -6,12 +6,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rappi.core.domain.model.DMovieDetail
 import com.rappi.core.domain.model.Resource
-import com.rappi.core.presentation.model.Languages
+import com.rappi.core.app.Languages
 import com.rappi.trends_domain.use_case.GetTrendsMoviesRemote
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
@@ -24,7 +22,7 @@ class TrendsMoviesViewModel @Inject constructor(
     private var nextTrendsMovies: Job? = null
 
     private var currentPageIndex = 1
-    private var currentLanguage = Languages.EnUs.name
+    private var currentLanguage = Languages.EsES.name
 
     private val _trendsMovies: MutableLiveData<Resource<DMovieDetail>?> = MutableLiveData()
     val trendsMovies: LiveData<Resource<DMovieDetail>?> = _trendsMovies

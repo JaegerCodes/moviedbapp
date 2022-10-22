@@ -15,9 +15,7 @@ interface SafeApiCall {
                 val response = Resource.Success(apiCall.invoke())
                 response
             } catch (throwable: Throwable) {
-                if (BuildConfig.DEBUG) {
-                    android.util.Log.w("Throwable error", throwable.message ?: "")
-                }
+
                 when (throwable) {
                     is HttpException -> {
                         Resource.Failure(false, throwable.code())
