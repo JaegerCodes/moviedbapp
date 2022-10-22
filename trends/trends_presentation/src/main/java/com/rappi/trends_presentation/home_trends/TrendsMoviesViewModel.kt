@@ -22,7 +22,7 @@ class TrendsMoviesViewModel @Inject constructor(
     private var nextTrendsMovies: Job? = null
 
     private var currentPageIndex = 1
-    private var currentLanguage = Languages.EnUs.name
+    private var currentLanguage = Languages.EsES.name
 
     private val _trendsMovies: MutableLiveData<Resource<DMovieDetail>?> = MutableLiveData()
     val trendsMovies: LiveData<Resource<DMovieDetail>?> = _trendsMovies
