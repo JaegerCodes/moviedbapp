@@ -45,6 +45,7 @@ dependencies {
     implementation(Ui.material)
     implementation(Ui.navigationUiKtx)
     implementation(Ui.constraintLayout)
+    implementation(Ui.flexbox)
     implementation(Ui.navigationFragmentKtx)
 
     implementation(Ui.lifecycleExtensions)

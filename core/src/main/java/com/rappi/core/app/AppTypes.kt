@@ -1,4 +1,4 @@
-package com.rappi.core.presentation.model
+package com.rappi.core.app
 
 sealed class Languages {
     object EnUs: Languages() {
@@ -9,3 +9,12 @@ sealed class Languages {
     }
     internal abstract val name: String
 }
+
+
+sealed class AndroidApps {
+    object YouTube: AndroidApps() {
+        public override val name: String = "youtube"
+    }
+    internal abstract val name: String
+}
+

@@ -5,19 +5,24 @@ import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.android.flexbox.AlignItems
+import com.google.android.flexbox.FlexDirection
+import com.google.android.flexbox.FlexWrap
+import com.google.android.flexbox.FlexboxLayoutManager
+import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import coil.load
+import com.rappi.core.app.Languages
 import com.rappi.core.domain.model.Resource
-import com.rappi.core.presentation.model.Languages
 import com.rappi.core.presentation.ui_extensions.handleApiError
+import com.rappi.core.presentation.ui_extensions.openYoutubeVideo
+import com.rappi.core.presentation.ui_extensions.visible
 import com.rappi.core_ui.R
 import com.rappi.moviedetail_presentation.databinding.FragmentMovieDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
-import java.time.LocalDate
-import java.time.ZoneId
-import java.util.*
+
 
 @AndroidEntryPoint
 class MovieDetailFragment : DialogFragment() {
@@ -50,21 +55,20 @@ class MovieDetailFragment : DialogFragment() {
         ViewCompat.setTransitionName(binding.heroImage, sharedViewId)
         super.onViewCreated(view, savedInstanceState)
 
-        val imageUrl = arguments?.getString(POSTER_URL)?: ""
+        initViews()
+        initViewModel()
+    }
+
+    private fun initViews() {
+        val imageUrl = arguments?.getString(POSTER_URL) ?: ""
         binding.heroImage.load(imageUrl) {
+            error(R.drawable.ui_ic_no_image)
             crossfade(300)
-            listener(
-                onError = { _, _ ->
-                    binding.heroImage.load(R.drawable.ui_ic_no_image)
-                }
-            )
         }
 
-        binding.backButton.setOnClickListener {
+        binding.appBar.setNavigationOnClickListener {
             dismiss()
         }
-
-        initViewModel()
     }
 
     private fun initViewModel() {
@@ -77,17 +81,44 @@ class MovieDetailFragment : DialogFragment() {
                     averageText.text = it.data.voteAverage
                     yearText.text = it.data.year
 
-                    seeTrailerButton.setOnClickListener {
-
+                    val layoutManager = FlexboxLayoutManager(binding.root.context).apply {
+                        flexWrap = FlexWrap.WRAP
+                        flexDirection = FlexDirection.ROW
+                        alignItems = AlignItems.CENTER
                     }
+
+                    binding.genrsTags.layoutManager = layoutManager
+                    binding.genrsTags.adapter = MovieGenrsAdapter(
+                        it.data.genrs
+                    )
                 }
                 is Resource.Failure -> handleApiError(it)
                 else -> Unit
             }
         }
 
+        movieDetailViewModel.movieVideo.observe(viewLifecycleOwner) { response ->
+            when (response) {
+                is Resource.Success -> {
+                    binding.seeTrailerButton.setOnClickListener {
+                        if (response.data.key.isNotEmpty()) {
+                            openYoutubeVideo(response.data.key)
+                        }
+                    }
+                }
+                is Resource.Failure -> {
+                    binding.labelSeeTrailer.visible(false)
+                    binding.seeTrailerButton.visible(false)
+                    val toast = Toast.makeText(requireContext(), getString(R.string.ui_no_video), Toast.LENGTH_SHORT)
+                    toast.show()
+                }
+                else -> Unit
+            }
+        }
+
         val movieId = arguments?.getString(MOVIE_ID)?: ""
         movieDetailViewModel.getMovieDetail(movieId, Languages.EsES.name)
+        movieDetailViewModel.getMovieVideo(movieId)
     }
 
     override fun getTheme(): Int = android.R.style.Theme_Black_NoTitleBar_Fullscreen

@@ -45,11 +45,7 @@ class HorizontalMovieAdapter(
             ) {
                 crossfade(300)
                 placeholder(R.drawable.ui_ic_no_image)
-                listener(
-                    onError = { _, _ ->
-                        movieImage.load(R.drawable.ui_ic_no_image)
-                    }
-                )
+                error(R.drawable.ui_ic_no_image)
             }
             ViewCompat.setTransitionName(movieImage, "trends${model.id}")
             movieButton.setOnClickListener {

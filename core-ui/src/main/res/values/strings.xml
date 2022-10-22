@@ -3,4 +3,5 @@
     <string name="ui_image_movie">Core Ui module component image horizontal list</string>
     <string name="movie_plot">MOVIE PLOT</string>
     <string name="watch_trailer">Ver trailer</string>
+    <string name="ui_no_video">This movie doesn\'t have trailer</string>
 </resources>
