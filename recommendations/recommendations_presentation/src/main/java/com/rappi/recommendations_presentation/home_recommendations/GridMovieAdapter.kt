@@ -36,11 +36,7 @@ class GridMovieAdapter(
                 PosterSize.Large.url(model.posterPath)
             ) {
                 crossfade(300)
-                listener(
-                    onError = { _, _ ->
-                        movieImage.load(R.drawable.ui_ic_no_image)
-                    }
-                )
+                movieImage.load(R.drawable.ui_ic_no_image)
             }
             ViewCompat.setTransitionName(movieImage, "recommendation${model.id}")
             movieButton.setOnClickListener {

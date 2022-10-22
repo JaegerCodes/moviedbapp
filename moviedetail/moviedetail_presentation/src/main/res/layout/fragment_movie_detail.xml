@@ -117,7 +117,7 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/genrs_tags"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/ui_normal_200"
                     app:layout_constraintBottom_toTopOf="@+id/label_see_trailer"
@@ -146,7 +146,7 @@
                     android:layout_height="0dp"
                     app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CoreUI.MovieImage"
                     app:strokeWidth="@dimen/ui_small_25"
-                    app:strokeColor="@color/ui_gray_75"
+                    app:strokeColor="@color/ui_white"
                     android:alpha="0.8"
                     android:background="?selectableItemBackground"
                     app:layout_constraintTop_toTopOf="@+id/label_see_trailer"

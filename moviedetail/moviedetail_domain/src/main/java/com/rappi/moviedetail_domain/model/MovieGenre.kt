@@ -6,5 +6,5 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class MovieGenre (
     val id: Long,
-    val name: String
+    var name: String
 ): Parcelable

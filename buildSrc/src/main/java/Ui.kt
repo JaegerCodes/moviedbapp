@@ -16,4 +16,7 @@ object Ui {
 
     private const val constraintLayoutVersion = "2.1.4"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+
+    private const val flexboxVersion = "3.0.0"
+    const val flexbox = "com.google.android.flexbox:flexbox:$flexboxVersion"
 }
