@@ -5,7 +5,7 @@ es entregar datos ya sean remotos o locales al submódulo moviedetail_domain.
 
 # Un buen código limpio
 Un buen código limpio es cuando este es fácilmente extendible, testiable, escalable y modificable. Así mismo, cuando, por ejemplo, entra un nuevo colaborador, este puede
-adaptarse fácilmente al código fuente, y entienda el fin de una funcionalidad o, del mismo modo, las reglas de negocio.
+adaptarse fácilmente al código fuente, y entienda el fin de cada funcionalidad o, del mismo modo, las reglas de negocio.
 
 # Lo que falta
 Terminar de realizar los testing de las capas domain, para este caso de pruebas se hizo en los testings para todas las capas data de cada Feature Module y solo el unit
