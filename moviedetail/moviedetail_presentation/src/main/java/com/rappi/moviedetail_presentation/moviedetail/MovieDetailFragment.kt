@@ -19,7 +19,7 @@ import com.rappi.core.domain.model.Resource
 import com.rappi.core.presentation.ui_extensions.handleApiError
 import com.rappi.core.presentation.ui_extensions.openYoutubeVideo
 import com.rappi.core.presentation.ui_extensions.visible
-import com.rappi.core_ui.R
+import com.rappi.core.R
 import com.rappi.moviedetail_presentation.databinding.FragmentMovieDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 

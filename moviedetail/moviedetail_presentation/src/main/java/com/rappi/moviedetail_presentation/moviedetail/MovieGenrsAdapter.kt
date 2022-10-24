@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.rappi.core_ui.R
+import com.rappi.core.R
 import com.rappi.moviedetail_domain.model.MovieGenre
 
 

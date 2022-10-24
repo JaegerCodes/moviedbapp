@@ -16,7 +16,6 @@ import com.rappi.core.domain.model.DMovie
 import com.rappi.core.domain.model.DMovieDetail
 import com.rappi.core.presentation.ui_extensions.PosterSize
 import com.rappi.core.presentation.ui_extensions.handleApiError
-import com.rappi.core_ui.parentViewVisible
 import com.rappi.moviedetail_presentation.moviedetail.MovieDetailFragment
 import com.rappi.recommendations_domain.model.FilteredMovies
 import com.rappi.recommendations_presentation.R
@@ -74,7 +73,7 @@ class HomeRecommendationsFragment : Fragment() {
     private fun onGetUpcomingMovies() {
         moviesViewModel.recommendationsMovies.observe(viewLifecycleOwner) { response ->
 
-            parentViewVisible(response is FilteredMovies.Loading && adapterMovies.itemCount > 0)
+            //parentViewVisible(response is FilteredMovies.Loading && adapterMovies.itemCount > 0)
             when (response) {
                 is FilteredMovies.Success -> (view?.parent as? ViewGroup)?.doOnPreDraw {
                     onGetUpcomingMoviesFromApi(response.detail)
@@ -86,7 +85,7 @@ class HomeRecommendationsFragment : Fragment() {
         }
 
         moviesViewModel.filteredMovies.observe(viewLifecycleOwner) { response ->
-            parentViewVisible(response is FilteredMovies.Loading && adapterMovies.itemCount > 0)
+            //parentViewVisible(response is FilteredMovies.Loading && adapterMovies.itemCount > 0)
             when (response) {
                 is FilteredMovies.Success -> {
                     onGetUpcomingMoviesFromApi(response.detail)

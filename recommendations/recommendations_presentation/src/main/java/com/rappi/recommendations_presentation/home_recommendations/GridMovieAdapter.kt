@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.rappi.core.domain.model.DMovie
 import com.rappi.core.presentation.ui_extensions.PosterSize
-import com.rappi.core_ui.R
-import com.rappi.core_ui.databinding.UiGridImageMovieBinding
+import com.rappi.core.R
+import com.rappi.core.databinding.UiGridImageMovieBinding
 
 class GridMovieAdapter(
     val movies: MutableList<DMovie> = mutableListOf(),
