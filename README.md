@@ -13,11 +13,12 @@ test de la capa moviedetail_domain
 
 Agregar Android Instrumented Tests para poder testear las capas de presentación de cada módulo
 
-El uso de Flavors para poder manejar (En este proyecto solo se simuló dos ambientes DEV Y PRD usando buildTypes en la capa core) los ambientes del negocio por ejemplo
-uno de desarrollo "DEV", para pruebas "QA", para demo que se mostrará al cliente "UAT" y uno para producción "PRD". Además con esto se puede customizar mediante los
-archivos gradle el nombre de la APP para que el equipo de testers pueda verificar fácilmente en qué ambiente se encuentra el APK a testear (Ej. MyAp QA).
+El uso de Flavors para poder manejar distintos ambientes (En este proyecto solo se simuló dos ambientes DEV Y PRD usando buildTypes en la capa core) del negocio por
+ejemplo uno de desarrollo "DEV", para pruebas "QA", para los demos que se mostrará al cliente "UAT" y uno para producción "PRD".
 
-Configurar ambientes de pruebas de integración continua mediante la creación de pipelines como jenkins entre los más clásicos, o BitRise para poder automatizar
+Configurar ambientes de pruebas de integración continua mediante la creación de pipelines como jenkins entre los más clásicos, o Bitrise para poder automatizar
 las entregas de los archivos compilados, verificar los pull request de los colaboradores o la verificación de que todos los unit test estén ejecutándose correctamente
 
 Con respecto a calidad de software se podría configurar un Sonar Qube para el proyecto donde los reportes se crearían para cada Feature Module
+
+Y ofuscación de código fuente mediante Proguard Rules
