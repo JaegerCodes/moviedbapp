@@ -24,25 +24,6 @@ class HomeGuestFragment : Fragment() {
         return binding.root
     }
 
-    fun setLoadingAnimationVisibility(isVisible: Boolean) {
-        with(binding.parentProgressbar) {
-            val currentAlpha = alpha
-            if (!isVisible) {
-                animate()
-                    .alpha(0f)
-                    .setDuration(1500L)
-                    .setListener(object : AnimatorListenerAdapter() {
-                        override fun onAnimationEnd(animation: Animator) {
-                            visibility = View.GONE
-                            alpha = currentAlpha
-                        }
-                    })
-            } else {
-                visibility = View.VISIBLE
-            }
-        }
-    }
-
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
